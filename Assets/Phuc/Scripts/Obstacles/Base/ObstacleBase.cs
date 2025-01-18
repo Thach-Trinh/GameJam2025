@@ -46,13 +46,19 @@ public abstract class ObstacleBase : MonoBehaviour
     protected virtual void OnPlayerEnterStartTriggerBox()
     {
         Debug.Log("Player entered start trigger box");
-        BubblePopupController.Instance.ShowPopup(_obstacleData,this);
+        if (BubblePopupController.Instance != null)
+        {
+            BubblePopupController.Instance.ShowPopup(_obstacleData,this);
+        }
     }
     
     protected virtual void OnPlayerEnterEndTriggerBox()
     {
         Debug.Log("Player entered end trigger box");
-        Player.Instance.InteractWithObstacle();
+        if (Player.Instance != null)
+        {
+            Player.Instance.InteractWithObstacle();
+        }
     }
 
     private void OnDestroy()

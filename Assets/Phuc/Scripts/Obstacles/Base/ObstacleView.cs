@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleView : MonoBehaviour
 {
-    protected float _globalTimeScale => TimeController.Instance.curTimeScale;
+    protected float _globalTimeScale => TimeController.Instance != null? TimeController.Instance.curTimeScale : 1;
     public virtual void PlayObstacleEnterTriggerBoxAnimation()
     {
         // Play enter animation
@@ -19,9 +19,9 @@ public class ObstacleView : MonoBehaviour
     {
         // Play exit animation
     }
-    
-    public virtual void PlayObstacleExitAnimationWithDelayDuration(float duration)
+
+    public virtual void OnPlayerSuccessInteract()
     {
-        // Play exit animation with delay duration
+        // Play success interact animation
     }
 }

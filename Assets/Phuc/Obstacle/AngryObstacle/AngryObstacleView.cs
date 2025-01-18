@@ -19,23 +19,26 @@ public class AngryObstacleView : ObstacleView
         }
     }
     
-    public override void PlayObstacleExitAnimationWithDelayDuration(float duration)
+    public override void OnPlayerSuccessInteract()
     {
-        if (_animator != null)
-        {
-            StartCoroutine(DelayExitAnimation(duration));
-        }
-    }
-    
-    IEnumerator DelayExitAnimation(float duration)
-    {
-        float ticker = 0;
-        while (ticker < duration)
-        {
-            ticker += Time.deltaTime*_globalTimeScale;
-            yield return null;
-        }
+        PlayParticleSmoke();
         TriggerAnimation(DisappearHash);
+    }
+
+    void PlayParticleSmoke()
+    {
+        var particleObject = ParticleManager.Instance.GetParticle(ParticleType.Smoke);
+        if (particleObject == null)
+        {
+            Debug.LogError("Particle smoke is null");
+            return;
+        }
+        particleObject.transform.position = _animator.transform.position;
+        var particle = particleObject.GetComponent<ParticleSystem>();
+        if (particle != null)
+        {
+            particle.Play();
+        }
     }
     
     void TriggerAnimation(int hash)
