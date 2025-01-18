@@ -11,6 +11,7 @@ public class GameplayController : MonoBehaviour
     public Transform startPoint;
     public Transform endJumpPoint;
     public Transform endDuckPoint;
+    public Transform endFlyPoint;
     public TimeController timeController => TimeController.Instance;
     private Player player => Player.Instance;
 
@@ -62,6 +63,15 @@ public class GameplayController : MonoBehaviour
                 pointToEndDuck = endDuckPoint
             };
             player.ChangeState(ActionType.Duck, duckActionData);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            FlyActionData flyActionData = new FlyActionData()
+            {
+                startPoint = startPoint,
+                endPoint = endFlyPoint
+            };
+            player.ChangeState(ActionType.Fly, flyActionData);
         }
     }
 

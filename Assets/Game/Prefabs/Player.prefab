@@ -48,6 +48,56 @@ MonoBehaviour:
   speed: 2
   defaultAnimSpeed: 0.2
   normalizedTransitionDuration: 0.1
+--- !u!1 &2486370660719522388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4521216975548352320}
+  - component: {fileID: 971493264258086598}
+  m_Layer: 3
+  m_Name: Fly
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4521216975548352320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486370660719522388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6333170260400265138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971493264258086598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486370660719522388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c77c3f809b305040b75382be04991c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  epsilon: 0.001
+  moveSpeed: 2
+  prepareAnimSpeed: 1
+  defaultMoveAnimSpeed: 0.1
+  normalizedTransitionDuration: 0.1
 --- !u!1 &2668288931198958521
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +132,7 @@ Transform:
   - {fileID: 5380933713751655401}
   - {fileID: 5543597695843928600}
   - {fileID: 4898070248930681523}
+  - {fileID: 4521216975548352320}
   m_Father: {fileID: 5730828596720716007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2786223878685420214
@@ -275,6 +326,7 @@ MonoBehaviour:
   - {fileID: 1191966758452287953}
   - {fileID: 6777659743629775705}
   - {fileID: 1763614683131524713}
+  - {fileID: 971493264258086598}
   curState: {fileID: 0}
 --- !u!70 &7789817219414710167
 CapsuleCollider2D:
