@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e666ed0cee8f4449e60a978f6e7fa3, type: 3}
+  m_Name: Angry_Rumor
+  m_EditorClassIdentifier: 
+  _correctEmotions:
+  - {fileID: 11400000, guid: 64d7557675ed0e24fae68f9956fd233d, type: 2}
+  _incorrectEmotions:
+  - {fileID: 11400000, guid: 9220575d3ab9a634ba5f765a1641b7d9, type: 2}
+  - {fileID: 11400000, guid: 8e5566b8b224587499466cf3a6d766f9, type: 2}
+  - {fileID: 11400000, guid: 0473f0f5a92bef344aa062c2b1101e31, type: 2}
+  timeToAnswer: 3
+  obstacleDialogue: They are whispering about me again and again!
+  shouldSlowMotion: 0
