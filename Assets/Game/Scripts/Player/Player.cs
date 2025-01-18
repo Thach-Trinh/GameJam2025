@@ -7,11 +7,11 @@ using static UnityEditor.Rendering.InspectorCurveEditor;
 
 public class Player : MonoBehaviour
 {
-    public ActionType curAction;
+    //public ActionType curAction;
     public ActionType nextAction;
     private object[] nextData;
     [SerializeField] private PlayerBaseState[] states;
-    protected PlayerBaseState curState;
+    public PlayerBaseState curState;
     private void Awake() => states.Iterate(x => x.Init(this));
 
     public void ReceiveAction(ActionType type, params object[] data)
@@ -20,23 +20,22 @@ public class Player : MonoBehaviour
         this.nextData = data;
     }
 
-    public void ChangeState(ActionType type)
+    public void ChangeState(ActionType type, object[] data = null)
     {
         PlayerBaseState newState = Array.Find(states, (state) => state.Type == type);
-        ChangeState(newState);
+        ChangeState(newState, data);
     }
 
-    public void ChangeState(PlayerBaseState newState)
+    public void ChangeState(PlayerBaseState newState, object[] data = null)
     {
         curState?.ExitState();
         curState = newState;
-        curState?.EnterState();
+        curState?.EnterState(data);
     }
 
-    public void CustomUpdate()
+    public void CustomUpdate(float timeScale)
     {
-        //forward = body.forward;
-        curState?.UpdateState();
+        curState?.UpdateState(Time.deltaTime, timeScale);
     }
 
 

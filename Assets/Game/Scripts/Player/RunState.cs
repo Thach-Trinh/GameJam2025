@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RunState : PlayerBaseState
 {
-    private Vector3 destination;
-    protected float speed;
+    public float speed;
     protected Transform trans;
 
     public override void Init(Player player)
@@ -14,7 +13,7 @@ public class RunState : PlayerBaseState
         trans = player.transform;
     }
 
-    public override void EnterState(params object[] data)
+    public override void EnterState(object[] data)
     {
     }
 
@@ -24,8 +23,9 @@ public class RunState : PlayerBaseState
         ////controller.Character.Anim.speed = speed / animSpeed;
     }
 
-    public override void UpdateState()
+    public override void UpdateState(float deltaTime, float timeScale)
     {
+        trans.Translate(speed * deltaTime * timeScale * Vector2.right);
         ////speed = GetSpeed(controller.Character.Stat);
         //Vector3 oldPos = trans.position;
         //trans.position = Vector3.MoveTowards(trans.position, destination, speed * Time.deltaTime);
