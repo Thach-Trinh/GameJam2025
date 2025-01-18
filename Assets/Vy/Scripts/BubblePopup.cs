@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BubblePopupNS;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -79,7 +80,7 @@ public class BubblePopup : MonoBehaviour
     
     private void StartTimer(float timer)
     {
-        StartCoroutine(TimerRoutine(timer));
+        timerCoroutine = StartCoroutine(TimerRoutine(timer));
     }
 
     private IEnumerator TimerRoutine(float timer)
@@ -144,12 +145,15 @@ public class BubblePopup : MonoBehaviour
         StartTimer(data.SelectionTime);
     }
 
-    public void OnUserSelected(EmotionType emotionType, int index, BubbleItem item)
+    public async void OnUserSelected(EmotionType emotionType, int index, BubbleItem item)
     {
         if (userSelected || currentTime >= data.SelectionTime)
             return;
         userSelected = true;
         item.Pop();
+        StopTimer();
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        Hide();
         VyHelper.PrintLog(enableLog, logTag, $"User selected {emotionType}, index {index}");
     }
 
