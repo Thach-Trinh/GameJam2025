@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using VyNS;
 
-public class ObstacleBase : MonoBehaviour
+public abstract class ObstacleBase : MonoBehaviour
 {
     [SerializeField] private ObstacleTriggerBox _startTriggerBox;
     [SerializeField] private ObstacleTriggerBox _endTriggerBox;
     [SerializeField] protected ObstacleView _obstacleView;
     [SerializeField] private BubblePopupData _obstacleData;
     [SerializeField] protected bool _isCorrectChoice;
+    public abstract ActionData GetData();
     void Start()
     {
         _isCorrectChoice = false;

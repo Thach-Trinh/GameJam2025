@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class RunState : PlayerBaseState
 {
+    private static int WALK_HASH = Animator.StringToHash("Walk");
     public float speed;
+    public float defaultAnimSpeed = 0.1f;
     protected Transform trans;
+    public float normalizedTransitionDuration;
+    //public int layer;
 
     public override void Init(Player player)
     {
@@ -15,6 +19,8 @@ public class RunState : PlayerBaseState
 
     public override void EnterState(ActionData data)
     {
+        player.anim.CrossFade(WALK_HASH, normalizedTransitionDuration);
+
     }
 
     private void UpdateAnimSpeed()

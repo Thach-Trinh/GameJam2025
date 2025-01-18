@@ -48,7 +48,7 @@ public class ThachGameplay : MonoBehaviour
 
     private void LateUpdate()
     {
-        CameraController.Instance.Follow(player.transform.position);
+        //CameraController.Instance.Follow(player.transform.position);
     }
 
 

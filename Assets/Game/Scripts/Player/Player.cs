@@ -1,12 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 using static UnityEditor.Rendering.InspectorCurveEditor;
 
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+    
+    
+
     //public ActionType curAction;
     public ActionType nextAction;
     public AnimationEventHandler animEventHandler;
@@ -16,6 +21,7 @@ public class Player : MonoBehaviour
     public PlayerBaseState curState;
     private void Awake()
     {
+        Instance = this;
         states.Iterate(x => x.Init(this));
         animEventHandler.onEventTrigger += OnAnimEventTrigger;
     }

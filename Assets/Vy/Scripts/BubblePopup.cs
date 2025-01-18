@@ -166,6 +166,7 @@ public class BubblePopup : MonoBehaviour
         {
             VyHelper.PrintLog(enableLog, logTag, "Incorrect");
         }
+        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData());
     }
 
     [ContextMenu("Hide")]

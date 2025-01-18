@@ -689,6 +689,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   speed: 4
+  normalizedTransitionDuration: 0
+  layer: 0
 --- !u!114 &1191966759991776303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,6 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextAction: 0
   animEventHandler: {fileID: 4395588995593995657}
+  anim: {fileID: 0}
   states:
   - {fileID: 768617386064387247}
   - {fileID: 1191966759991776303}
