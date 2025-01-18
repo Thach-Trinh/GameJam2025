@@ -12,14 +12,25 @@ public class Menu : MonoBehaviour
     [SerializeField] private float spawnRandomMaxRange = 1.5f;
     private Coroutine spawningCoroutine;
 
-    private void Start()
+    public void Show()
     {
         StartSpawning();
+    }
+
+    public void Hide()
+    {
+        StopSpawning();
     }
     
     private void StartSpawning()
     {
         spawningCoroutine = StartCoroutine(Spawning());
+    }
+
+    public void OnPlayButtonPressed()
+    {
+        StopSpawning();
+        GameController.Instance.SetState(GameController.Instance.LoadingState);
     }
 
     private IEnumerator Spawning()
