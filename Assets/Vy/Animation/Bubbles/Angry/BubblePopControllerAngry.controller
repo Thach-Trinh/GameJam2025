@@ -28,7 +28,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BubblePopController
+  m_Name: BubblePopControllerAngry
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 45f6354156fa34044a7b2f6ac930682f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 80225c85988e0e846b9de2d7dcba1176, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

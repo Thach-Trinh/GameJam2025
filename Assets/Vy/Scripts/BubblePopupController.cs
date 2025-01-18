@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using BubblePopupNS;
 using UnityEngine;
 using VyNS;
@@ -78,6 +76,18 @@ public class BubblePopupController : MonoBehaviour
         bubblePopup.OnBubblePopupSelectedEvent -= OnBubblePopupSelectedEventHandler;
         bubblePopup.OnBubblePopupSelectedEvent += OnBubblePopupSelectedEventHandler;
         bubblePopup.Initialize(data);
+        bubblePopup.Show();
+    }
+    
+    public void ShowPopup(BubblePopupData data)
+    {
+        if (bubblePopup == null)
+            bubblePopup = CreatePopup();
+        
+        bubblePopup.OnBubblePopupSelectedEvent -= OnBubblePopupSelectedEventHandler;
+        bubblePopup.OnBubblePopupSelectedEvent += OnBubblePopupSelectedEventHandler;
+        bubblePopup.Initialize(data);
+        bubblePopup.Show();
     }
 
     private void OnBubblePopupSelectedEventHandler(EmotionType emotionType)
@@ -86,7 +96,7 @@ public class BubblePopupController : MonoBehaviour
         HidePopup();
     }
 
-    private void HidePopup()
+    public void HidePopup()
     {
         if (bubblePopup == null)
         {
@@ -94,7 +104,7 @@ public class BubblePopupController : MonoBehaviour
             return;
         }
         
-        bubblePopup.Uninitialize();
+        //bubblePopup.Uninitialize();
         bubblePopup.Hide();
     }
 }

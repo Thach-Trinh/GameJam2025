@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PopupData_Obstacle1
   m_EditorClassIdentifier: 
   emotionVisuals:
-  - emotionType: 0
-    textDescription: Be Happy
-  - emotionType: 1
-    textDescription: Be Angry
+  - emotionType: 4
+    textDescription: 
+  - emotionType: 3
+    textDescription: 
   - emotionType: 2
-    textDescription: Be Sad
+    textDescription: 
   selectionTime: 3
-  hint: "H\xE3y v\u1EF1c d\u1EADy tinh th\u1EA7n"
+  hint: "Vui l\xEAn n\xE0o b\u1EA1n nh\xE9"

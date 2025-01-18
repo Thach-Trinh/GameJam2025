@@ -2,9 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BubblePopupNS;
-using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VyNS;
 
@@ -26,17 +25,26 @@ public class BubblePopup : MonoBehaviour
     [SerializeField, Header("Animation")] private Animator animator;
     [SerializeField] private string triggerShow = "Show";
     [SerializeField] private string triggerHide = "Hide";
-    private bool isShowing = false;
-    private bool isHiding = false;
+    [SerializeField] private bool isShowing = false;
+    [SerializeField] private bool isHiding = false;
     
+    [SerializeField, Header("User")] private bool userSelected = false;
+    
+    [SerializeField, Header("Slider")] private Slider slider;
+    
+    [SerializeField, Header("Dialog")] private GameObject dialog;
+    [SerializeField] private TextMeshProUGUI dialogText;
+
     [SerializeField, Header("Debug")] private bool enableLog = true;
     [SerializeField] private string logTag = $"{nameof(BubblePopup)} ";
+    [SerializeField] private float currentTime = 0;
 
-    [SerializeField] private Slider slider;
     private Coroutine timerCoroutine;
 
     public void Initialize(BubblePopupData data)
     {
+        this.data = data;
+        Uninitialize();
         if (data == null)
         {
             VyHelper.PrintError(enableLog, logTag, "BubblePopupData is null.");
@@ -44,18 +52,26 @@ public class BubblePopup : MonoBehaviour
         }
         
         UpdateHorizontalLayout(data.EmotionBubbleVisualDatas);
-
-        StartTimer(data.SelectionTime);
+        UpdateDialog(data.Hint);
+        slider.value = 1;
+    }
+    
+    private void UpdateDialog(string text)
+    {
+        dialogText.text = text;
+        dialog.SetActive(!string.IsNullOrEmpty(text));
     }
 
     private void UpdateHorizontalLayout(List<EmotionBubbleVisualData> emotionVisuals)
     {
+        int i = 0;
         foreach (var emotionVisual in emotionVisuals)
         {
-            var bubbleItem = GetBubbleItem(emotionVisual);
+            var bubbleItem = GetBubbleItem(emotionVisual, i);
             bubbleItems.Add(bubbleItem);
             if (bubbleItem.transform.parent != horizontalLayoutGroup.transform)
                 bubbleItem.transform.SetParent(horizontalLayoutGroup.transform, false);
+            i++;
         }
         
         ResizeBubbleHorizontal();
@@ -70,16 +86,19 @@ public class BubblePopup : MonoBehaviour
     {
         slider.maxValue = 1;
         slider.value = 0;
-        float time = 0;
-        while (time <= timer)
+        currentTime = 0;
+        while (currentTime <= timer)
         {
-            var t = time / timer;
+            var t = Mathf.Clamp01(1 - currentTime / timer);
             slider.value = t;
-            yield break;
-            time += Time.deltaTime;
+            yield return null;
+            currentTime += Time.deltaTime;
         }
 
-        slider.value = 1;
+        slider.value = 0;
+        timerCoroutine = null;
+        VyHelper.PrintLog(enableLog, logTag, "Timer done");
+        Hide();
     }
 
     private void StopTimer()
@@ -89,11 +108,6 @@ public class BubblePopup : MonoBehaviour
             StopCoroutine(timerCoroutine);
             timerCoroutine = null;
         }
-    }
-
-    private void OnDisable()
-    {
-        StopTimer();
     }
 
     public void Uninitialize()
@@ -107,48 +121,60 @@ public class BubblePopup : MonoBehaviour
         bubbleItems.Clear();
     }
 
+    [ContextMenu("Show")]
     public void Show()
     {
         if (isShowing)
             return;
         isShowing = true;
+        userSelected = false;
         animator.SetTrigger(triggerShow);
     }
 
-    public async void OnShowDone()
+    public void OnShowDone()
     {
+        VyHelper.PrintLog(enableLog, logTag, "OnShowDone");
         float delay = 0.2f;
         foreach (var bubbleItem in bubbleItems)
         {
             bubbleItem.OnShow();
-            await UniTask.Delay(TimeSpan.FromSeconds(delay));
         }
 
         isShowing = false;
+        StartTimer(data.SelectionTime);
     }
 
-    public void OnUserSelected(EmotionType emotionType, int index)
+    public void OnUserSelected(EmotionType emotionType, int index, BubbleItem item)
     {
+        if (userSelected || currentTime >= data.SelectionTime)
+            return;
+        userSelected = true;
+        item.Pop();
         VyHelper.PrintLog(enableLog, logTag, $"User selected {emotionType}, index {index}");
     }
 
+    [ContextMenu("Hide")]
     public void Hide()
     {
         if (isHiding)
             return;
         isHiding = true;
+        StopTimer();
         animator.SetTrigger(triggerHide);
     }
 
     public void OnHideDone()
     {
+        VyHelper.PrintLog(enableLog, logTag, "OnHideDone");
         isHiding = false;
+        isShowing = false;
+        //Uninitialize();
     }
 
-    private BubbleItem GetBubbleItem(EmotionBubbleVisualData visualData)
+    private BubbleItem GetBubbleItem(EmotionBubbleVisualData visualData, int index)
     {
         var bubbleItem = objectPool.GetObject().GetComponent<BubbleItem>();
-        bubbleItem.Initialize(visualData);
+        bubbleItem.Initialize(visualData, this, index);
         return bubbleItem;
     }
     
