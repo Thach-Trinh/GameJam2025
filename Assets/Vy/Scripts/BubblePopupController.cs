@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using BubblePopupNS;
-using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 using VyNS;
 
@@ -21,12 +20,13 @@ public class BubblePopupController : MonoBehaviour
     }
     
     [SerializeField, Header("Popup")] private GameObject bubblePopupPrefab;
-    private BubblePopup bubblePopup;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private BubblePopup bubblePopup;
     [SerializeField] private bool initPopupOnStart = true;
 
     [SerializeField, Header("Debug")] private bool enableLog = true;
     [SerializeField] private string logTag = $"{nameof(BubblePopupController)} " ;
-    [SerializeField] private VyTestSO testSO;
+    [SerializeField] private VyTestSO testSO; //TODO: delete later
 
     private void Awake()
     {
@@ -40,26 +40,23 @@ public class BubblePopupController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            
+            ShowPopup();
         }
-    }
 
-    private void Start()
-    {
-        if (initPopupOnStart)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            bubblePopup = CreatePopup();
+            HidePopup();
         }
     }
 
     private BubblePopup CreatePopup()
     {
-        var popup = Instantiate(bubblePopupPrefab, transform).GetComponent<BubblePopup>();
+        var popup = Instantiate(bubblePopupPrefab, canvas.transform).GetComponent<BubblePopup>();
         if (popup == null)
         {
             VyHelper.PrintError(enableLog, logTag, "BubblePopup prefab does not have BubblePopup component.");
