@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private AbstractGameState outroState;
 
     public bool IsMenuState => currentState == menuState;
+    public AbstractGameState CurrentState => currentState;
     
     public AbstractGameState MenuState => menuState;
     public AbstractGameState LoadingState => loadingState;
@@ -42,6 +43,10 @@ public class GameController : MonoBehaviour
     public UserData UserData => userData;
 
     private AbstractGameState currentState;
+    public Player Player;
+    public Transform PlayerSpawnPoint;
+    public GameObject mapPrefab;
+    private GameObject map;
 
     private void Awake()
     {
@@ -67,5 +72,16 @@ public class GameController : MonoBehaviour
         currentState?.OnExit();
         currentState = newState;
         currentState?.OnEnter();
+    }
+
+    public void CreateMap()
+    {
+        map = Instantiate(mapPrefab);
+    }
+
+    public void DestroyMap()
+    {
+        Destroy(map);
+        map = null;
     }
 }

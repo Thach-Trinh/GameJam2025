@@ -12,6 +12,9 @@ public class PlayState : AbstractGameState
    public override async void OnEnter()
    {
       Debug.Log("PlayState OnEnter");
+      gameController.Player.ChangeState(ActionType.Idle);
+      gameController.Player.transform.position = gameController.PlayerSpawnPoint.position;
+      gameController.CreateMap();
       // TODO: lang nghe player chet
       
       // TODO: lang nghe player win
@@ -24,6 +27,7 @@ public class PlayState : AbstractGameState
       
       playCanvas.gameObject.SetActive(false);
       
+      gameController.Player.ChangeState(ActionType.Run);
       // TODO: Bat dau game, nhan vat di chuyen
    }
    
@@ -36,7 +40,7 @@ public class PlayState : AbstractGameState
    public void OnPlayerWin()
    {
       Debug.Log("Player win");
-      gameController.SetState(gameController.LoadingState);
+      gameController.SetState(gameController.OutroState);
    }
    
    public void OnPlayerDie()

@@ -48,6 +48,7 @@ public abstract class ObstacleBase : MonoBehaviour
         Debug.Log("Player entered start trigger box");
         if (BubblePopupController.Instance != null)
         {
+            _obstacleData.EmotionBubbleVisualDatas.Shuffle();
             BubblePopupController.Instance.ShowPopup(_obstacleData,this);
         }
     }

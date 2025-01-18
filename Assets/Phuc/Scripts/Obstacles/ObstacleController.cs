@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
+    public static ObstacleController Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
     [SerializeField] private List<ObstacleBase> _obstacleList;
     [SerializeField] private List<TimeScaleObstacle> _timeScaleObstacleList;
+    [SerializeField] private WinTriggerBox _winTriggerBox;
     
     [ContextMenu("Find All Obstacles In Scene")]
     void FindAllObstacles()
     {
         FindObstacleBaseList();
         FindTimeScaleObstacleList();
+        FindWinTriggerBox();
     }
 
     void FindObstacleBaseList()
@@ -34,6 +41,11 @@ public class ObstacleController : MonoBehaviour
         }
     }
     
+    void FindWinTriggerBox()
+    {
+        _winTriggerBox = FindObjectOfType<WinTriggerBox>();
+    }
+    
     public void ResetObstacle()
     {
         foreach (var obstacle in _obstacleList)
@@ -45,5 +57,7 @@ public class ObstacleController : MonoBehaviour
         {
             timeScaleObstacle.ResetObstacle();
         }
+        
+        _winTriggerBox.ResetObstacle();
     }
 }

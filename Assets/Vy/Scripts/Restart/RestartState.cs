@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class RestartState : AbstractGameState
@@ -12,8 +14,10 @@ public class RestartState : AbstractGameState
         restartCanvas.gameObject.SetActive(false);
     }
 
-    public override void OnEnter()
+    public override async void OnEnter()
     {
         restartCanvas.gameObject.SetActive(true);
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        gameController.DestroyMap();
     }
 }
