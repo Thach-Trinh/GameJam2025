@@ -40,6 +40,7 @@ public class Player : MonoBehaviour, ITimeReactive
         TimeController.Instance.affectedObjects.Add(this);
     }
 
+
     private void OnDestroy()
     {
         TimeController.Instance.affectedObjects.Remove(this);

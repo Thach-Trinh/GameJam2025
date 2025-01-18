@@ -11,7 +11,9 @@ public class PlayState : AbstractGameState
    [SerializeField] private Canvas playCanvas;
    public override async void OnEnter()
    {
-      Debug.Log("PlayState OnEnter");
+        Player.Instance.anim.gameObject.SetActive(true);
+        Debug.Log("PlayState OnEnter");
+        CameraController.Instance.SetPos(Player.Instance.transform.position);
       gameController.Player.ChangeState(ActionType.Idle);
       gameController.Player.transform.position = gameController.PlayerSpawnPoint.position;
       gameController.CreateMap();
@@ -35,6 +37,12 @@ public class PlayState : AbstractGameState
     {
         base.OnUpdate();
         Player.Instance.CustomUpdate(TimeController.Instance.curTimeScale);
+    }
+
+    public override void OnLateUpdate()
+    {
+        base.OnLateUpdate();
+        CameraController.Instance.Follow(Player.Instance.transform.position);
     }
 
     public void OnPlayerPassedObstacle()

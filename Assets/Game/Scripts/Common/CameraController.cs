@@ -53,6 +53,12 @@ public class CameraController : MonoBehaviour
         transform.position = Vector2.SmoothDamp(transform.position, requiredPos, ref velocity, smoothTime);
     }
 
+    public void SetPos(Vector3 target)
+    {
+        Vector2 requiredPos = (Vector2)target + offset;
+        transform.position = requiredPos;
+    }
+
     private void Zoom(float target)
     {
         if (zoomRoutine != null)

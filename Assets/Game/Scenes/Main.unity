@@ -1438,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &969984122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,6 +2126,7 @@ MonoBehaviour:
   cam: {fileID: 284730859}
   defaulSize: 5
   smoothTime: 0.3
+  offset: {x: 0, y: 0}
   zoomDuration: 0.5
   curve:
     serializedVersion: 2
@@ -2415,10 +2416,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22a76978a55b694ca033da9599c2f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 403429308}
   height: 4
   duration: 6
   startPoint: {fileID: 361465222}
+  endJumpPoint: {fileID: 0}
+  endDuckPoint: {fileID: 0}
+  endFlyPoint: {fileID: 0}
 --- !u!114 &1872762193 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4999692021677671757, guid: 1ccb1d77bc106954bbce961ee97d6667, type: 3}
