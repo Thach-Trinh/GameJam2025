@@ -60,6 +60,11 @@ public abstract class ObstacleBase : MonoBehaviour
             Player.Instance.InteractWithObstacle();
         }
     }
+    
+    public virtual void OnPlayerSuccessInteract()
+    {
+        Debug.Log("Player success interact with obstacle");
+    }
 
     private void OnDestroy()
     {

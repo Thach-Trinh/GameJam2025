@@ -10,7 +10,7 @@ public class AngryObstacle : ObstacleBaseGeneric<AttackActionData>
         _obstacleView.PlayObstacleEnterTriggerBoxAnimation();
     }
     
-    protected override void OnPlayerEnterEndTriggerBox()
+    public override void OnPlayerSuccessInteract()
     {
         base.OnPlayerEnterEndTriggerBox();
         if (_isCorrectChoice)
