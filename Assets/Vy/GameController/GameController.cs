@@ -16,6 +16,10 @@ public class AbstractGameState : MonoBehaviour
     public virtual void OnUpdate()
     {
     }
+
+    public virtual void OnLateUpdate()
+    {
+    }
 }
 
 public class GameController : MonoBehaviour
@@ -64,7 +68,18 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        Player.Instance.anim.gameObject.SetActive(false);
         SetState(MenuState);
+    }
+
+    private void Update()
+    {
+        currentState?.OnUpdate();
+    }
+
+    private void LateUpdate()
+    {
+        currentState?.OnLateUpdate();
     }
 
     public void SetState(AbstractGameState newState)
@@ -73,6 +88,8 @@ public class GameController : MonoBehaviour
         currentState = newState;
         currentState?.OnEnter();
     }
+
+
 
     public void CreateMap()
     {
