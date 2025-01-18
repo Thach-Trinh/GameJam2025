@@ -13,7 +13,7 @@ public class RunState : PlayerBaseState
         trans = player.transform;
     }
 
-    public override void EnterState(object[] data)
+    public override void EnterState(ActionData data)
     {
     }
 

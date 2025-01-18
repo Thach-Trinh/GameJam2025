@@ -7,34 +7,37 @@ using UnityEngine;
 public class ThachGameplay : MonoBehaviour
 {
     public Player player;
-
     public float timeScale;
-
     public Transform endPoint;
     public float height;
     public float duration;
-    Vector2 startPoint;
-    private void Awake()
-    {
-        startPoint = player.transform.position;
-    }
+    public Transform startPoint;
+
 
     private void Update()
     {
         player.CustomUpdate(timeScale);
+        //CameraController.Instance.Follow(player.transform.position);
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             player.ChangeState(ActionType.Run);
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            object[] jumpData = new object[] { (Vector2)(endPoint.position), height, duration };
+            JumpActionData jumpData = new JumpActionData()
+            {
+                startPoint = startPoint,
+                endPoint = endPoint,
+                height = height,
+                duration = duration
+            };
             player.ChangeState(ActionType.Jump, jumpData);
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
             player.ChangeState(ActionType.Idle);
-            player.transform.position = startPoint;
+            player.transform.position = startPoint.position;
         }
     }
 

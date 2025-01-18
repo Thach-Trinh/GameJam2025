@@ -20,13 +20,13 @@ public class Player : MonoBehaviour
         this.nextData = data;
     }
 
-    public void ChangeState(ActionType type, object[] data = null)
+    public void ChangeState(ActionType type, ActionData data = null)
     {
         PlayerBaseState newState = Array.Find(states, (state) => state.Type == type);
         ChangeState(newState, data);
     }
 
-    public void ChangeState(PlayerBaseState newState, object[] data = null)
+    public void ChangeState(PlayerBaseState newState, ActionData data)
     {
         curState?.ExitState();
         curState = newState;

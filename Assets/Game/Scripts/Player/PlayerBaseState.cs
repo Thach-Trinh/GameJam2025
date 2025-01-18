@@ -14,7 +14,7 @@ public abstract class PlayerBaseState : MonoBehaviour
 
     public virtual void Init(Player player) => this.player = player;
 
-    public abstract void EnterState(object[] data);
+    public abstract void EnterState(ActionData data);
     public abstract void UpdateState(float deltaTime, float timeScale);
     public abstract void ExitState();
 }
