@@ -15,8 +15,6 @@ public enum JumpPhaseType
 
 public class JumpState : PlayerBaseState
 {
-
-
     private const float GRAVITY = 9.81F;
     private static int PREPARE_HASH = Animator.StringToHash("PrepareJump");
     private static int UP_HASH = Animator.StringToHash("JumpUp");

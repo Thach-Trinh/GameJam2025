@@ -6,5 +6,9 @@ public enum PlayerAnimationEventType
 {
     FootStep,
     StartJump,
-    FinishJump
+    FinishJump,
+    StartAttack,
+    DealDamage,
+    FinishAttack,
+    Duck,
 }
