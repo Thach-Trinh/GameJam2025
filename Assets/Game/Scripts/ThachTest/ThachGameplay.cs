@@ -12,7 +12,10 @@ public class ThachGameplay : MonoBehaviour
     public float duration;
     public Transform startPoint;
     public TimeController timeController;
-
+    private void Start()
+    {
+        player.ChangeState(ActionType.Idle);
+    }
     private void Update()
     {
         player.CustomUpdate(timeController.curTimeScale);
