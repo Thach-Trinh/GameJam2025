@@ -12,17 +12,27 @@ public class Mirror : ScaredObstacleView
         float ticker = 0;
         int spriteIndex = 0;
         int spriteRequired = 3;
-        while (spriteIndex < spriteRequired)
+        _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
+        while (true)
         {
             ticker += Time.deltaTime*_globalTimeScale;
             if (ticker >= delay)
             {
-                _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
                 spriteIndex++;
+                if (spriteIndex >= spriteRequired)
+                {
+                    break;
+                }
+                if (spriteIndex > 0)
+                {
+                    SpawnSmokeParticle(_spriteRenderer.transform.position);
+                }
+                _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
                 ticker = 0;
             }
             yield return null;
         }
+        SpawnSmokeParticle(_spriteRenderer.transform.position);
         _spriteRenderer.enabled = false;
     }
 
@@ -31,16 +41,44 @@ public class Mirror : ScaredObstacleView
         float ticker = 0;
         int spriteIndex = 0;
         int spriteRequired = 2;
-        while (spriteIndex < spriteRequired)
+        _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
+        while (true)
         {
             ticker += Time.deltaTime*_globalTimeScale;
             if (ticker >= delay)
             {
-                _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
                 spriteIndex++;
+                if (spriteIndex >= spriteRequired)
+                {
+                    break;
+                }
+                if (spriteIndex > 0)
+                {
+                    SpawnSmokeParticle(_spriteRenderer.transform.position);
+                }
+                _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
                 ticker = 0;
             }
             yield return null;
+        }
+    }
+
+    void SpawnSmokeParticle(Vector2 position)
+    {
+        if (ParticleManager.Instance != null)
+        {
+            var particleGO=ParticleManager.Instance.GetParticle(ParticleType.Smoke);
+            if (particleGO == null)
+            {
+                Debug.LogError("Particle is null");
+                return;
+            }
+            particleGO.transform.position = position;
+            var particle = particleGO.GetComponent<ParticleSystem>();
+            if (particle != null)
+            {
+                particle.Play();
+            }
         }
     }
 }

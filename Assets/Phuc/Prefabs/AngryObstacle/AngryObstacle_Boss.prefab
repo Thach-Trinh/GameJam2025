@@ -270,7 +270,6 @@ MonoBehaviour:
   _isCorrectChoice: 0
   actionData:
     pointToAttack: {fileID: 7124675686257300046}
-  durationDelayExitAnim: 1
 --- !u!4 &7124675686257300046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2660425280796835340, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
