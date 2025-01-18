@@ -78,6 +78,7 @@ public class BubblePopupController : MonoBehaviour
         bubblePopup.OnBubblePopupSelectedEvent -= OnBubblePopupSelectedEventHandler;
         bubblePopup.OnBubblePopupSelectedEvent += OnBubblePopupSelectedEventHandler;
         bubblePopup.Initialize(data);
+        bubblePopup.Show();
     }
 
     private void OnBubblePopupSelectedEventHandler(EmotionType emotionType)
@@ -94,7 +95,7 @@ public class BubblePopupController : MonoBehaviour
             return;
         }
         
-        bubblePopup.Uninitialize();
+        //bubblePopup.Uninitialize();
         bubblePopup.Hide();
     }
 }
