@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VyNS;
 
 public class ObstacleBase : MonoBehaviour
 {
     [SerializeField] private ObstacleTriggerBox _startTriggerBox;
     [SerializeField] private ObstacleTriggerBox _endTriggerBox;
     [SerializeField] protected ObstacleView _obstacleView;
-    [SerializeField] private ObstacleData _obstacleData;
-    public ObstacleData ObstacleData => _obstacleData;
+    [SerializeField] private BubblePopupData _obstacleData;
     [SerializeField] protected bool _isCorrectChoice;
     void Start()
     {
@@ -29,10 +29,16 @@ public class ObstacleBase : MonoBehaviour
         _startTriggerBox._onPlayerTriggerObstacleBox += OnPlayerEnterStartTriggerBox;
         _endTriggerBox._onPlayerTriggerObstacleBox += OnPlayerEnterEndTriggerBox;
     }
+    
+    public void ChoiceCorrect()
+    {
+        _isCorrectChoice = true;
+    }
 
     protected virtual void OnPlayerEnterStartTriggerBox()
     {
         Debug.Log("Player entered start trigger box");
+        BubblePopupController.Instance.ShowPopup(_obstacleData,this);
     }
     
     protected virtual void OnPlayerEnterEndTriggerBox()

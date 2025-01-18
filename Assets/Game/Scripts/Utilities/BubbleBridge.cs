@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BubblePopupNS;
 using UnityEngine;
 
 public static class BubbleBridge
