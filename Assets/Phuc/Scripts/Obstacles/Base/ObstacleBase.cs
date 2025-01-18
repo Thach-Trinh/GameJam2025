@@ -14,20 +14,27 @@ public abstract class ObstacleBase : MonoBehaviour
     public abstract ActionData GetData();
     void Start()
     {
+        ResetObstacle();
+    }
+
+    public void ResetObstacle()
+    {
         _isCorrectChoice = false;
         InitTriggerBoxes();
         RegisterEvents();
     }
-    
+
     void InitTriggerBoxes()
     {
-        _startTriggerBox.InitObstacleBox(this);
-        _endTriggerBox.InitObstacleBox(this);
+        _startTriggerBox.InitObstacleBox();
+        _endTriggerBox.InitObstacleBox();
     }
     
     void RegisterEvents()
     {
+        _startTriggerBox._onPlayerTriggerObstacleBox = null;
         _startTriggerBox._onPlayerTriggerObstacleBox += OnPlayerEnterStartTriggerBox;
+        _endTriggerBox._onPlayerTriggerObstacleBox = null;
         _endTriggerBox._onPlayerTriggerObstacleBox += OnPlayerEnterEndTriggerBox;
     }
     
