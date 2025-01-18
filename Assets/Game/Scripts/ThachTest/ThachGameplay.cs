@@ -17,8 +17,7 @@ public class ThachGameplay : MonoBehaviour
     private void Update()
     {
         player.CustomUpdate(timeScale);
-        //CameraController.Instance.Follow(player.transform.position);
-
+        CameraController.Instance.Follow(player.transform.position);
         if (Input.GetKeyDown(KeyCode.R))
         {
             player.ChangeState(ActionType.Run);
