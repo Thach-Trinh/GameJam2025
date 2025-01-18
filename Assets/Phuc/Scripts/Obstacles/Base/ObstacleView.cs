@@ -14,6 +14,11 @@ public class ObstacleView : MonoBehaviour
         // Play exit animation
     }
     
+    public virtual void PlayObstacleExitTriggerBoxAnimation(bool isCorrectChoice)
+    {
+        // Play exit animation
+    }
+    
     public virtual void PlayObstacleExitAnimationWithDelayDuration(float duration)
     {
         // Play exit animation with delay duration
