@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PopupData_Obstacle1
   m_EditorClassIdentifier: 
   emotionVisuals:
-  - emotionType: 0
-    textDescription: 
-  - emotionType: 1
+  - emotionType: 4
     textDescription: 
   - emotionType: 3
+    textDescription: 
+  - emotionType: 2
     textDescription: 
   selectionTime: 3
   hint: "Vui l\xEAn n\xE0o b\u1EA1n nh\xE9"

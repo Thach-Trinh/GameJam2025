@@ -15,9 +15,14 @@ namespace VyNS
         //[SerializeField] private TextMeshProUGUI textDescription;
         [SerializeField, Header("Debug")] private bool enableLog = true;
         [SerializeField] private string logTag = $"{nameof(BubbleItem)} ";
+
+        [SerializeField] private BubblePopup popup;
+        [SerializeField] private int index;
         
-        public void Initialize(EmotionBubbleVisualData visualData)
+        public void Initialize(EmotionBubbleVisualData visualData, BubblePopup popup, int index)
         {
+            this.popup = popup;
+            this.index = index;
             emotionType = visualData.emotionType;
             TurnOffAllEmotions();
             GetEmotionObject(emotionType).gameObject.SetActive(true);
@@ -30,6 +35,12 @@ namespace VyNS
         }
 
         public void OnSelected()
+        {
+            popup.OnUserSelected(emotionType, index, this);
+            
+        }
+
+        public void Pop()
         {
             GetEmotionObject(emotionType).Pop();
         }
