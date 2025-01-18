@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, ITimeReactive
     public Action onFinishAttackEventTrigger;
     public Action onDuckEventTrigger;
     public Action onFlyEventTrigger;
+    public Action onStopScreamEventTrigger;
     public ActionType nextAction;
     private ActionData nextData;
     public PlayerBaseState[] states;
@@ -125,6 +126,17 @@ public class Player : MonoBehaviour, ITimeReactive
                 {
                     onFlyEventTrigger?.Invoke();
                     onFlyEventTrigger = null;
+                    break;
+                }
+            case PlayerAnimationEventType.StartScream:
+                {
+                    CameraController.Instance.Shake();
+                    break;
+                }
+            case PlayerAnimationEventType.StopScream:
+                {
+                    onStopScreamEventTrigger?.Invoke();
+                    onStopScreamEventTrigger = null;
                     break;
                 }
         }

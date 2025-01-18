@@ -73,6 +73,10 @@ public class GameplayController : MonoBehaviour
             };
             player.ChangeState(ActionType.Fly, flyActionData);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            player.ChangeState(ActionType.Scream);
+        }
     }
 
     private void LateUpdate()

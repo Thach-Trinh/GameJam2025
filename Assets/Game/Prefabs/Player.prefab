@@ -133,6 +133,7 @@ Transform:
   - {fileID: 5543597695843928600}
   - {fileID: 4898070248930681523}
   - {fileID: 4521216975548352320}
+  - {fileID: 6148346386233480759}
   m_Father: {fileID: 5730828596720716007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2786223878685420214
@@ -327,6 +328,7 @@ MonoBehaviour:
   - {fileID: 6777659743629775705}
   - {fileID: 1763614683131524713}
   - {fileID: 971493264258086598}
+  - {fileID: 5387600812796984288}
   curState: {fileID: 0}
 --- !u!70 &7789817219414710167
 CapsuleCollider2D:
@@ -605,3 +607,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1676d598c6a1704b9fe4c6ba4492e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8104742894021201629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6148346386233480759}
+  - component: {fileID: 5387600812796984288}
+  m_Layer: 3
+  m_Name: Scream
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6148346386233480759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104742894021201629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6333170260400265138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5387600812796984288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104742894021201629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcafe04ea31ff14ca3ba084b5b04040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  animSpeed: 5
+  normalizedTransitionDuration: 0.1

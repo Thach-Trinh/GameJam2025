@@ -11,5 +11,7 @@ public enum PlayerAnimationEventType
     DealDamage,
     FinishAttack,
     Duck,
-    Fly
+    Fly,
+    StartScream,
+    StopScream
 }
