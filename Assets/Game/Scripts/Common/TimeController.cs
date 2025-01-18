@@ -5,13 +5,14 @@ using UnityEngine;
 public class TimeController : MonoBehaviour
 {
     public static TimeController Instance;
-    public List<ITimeReactive> affectedObjects;
+    public List<ITimeReactive> affectedObjects = new List<ITimeReactive>();
     private const float defaultTimeScale = 1f;
     public float curTimeScale;
     public float slowTimeScale;
 
     private void Awake()
     {
+        Debug.Log("Ahihi");
         Instance = this;
     }
 

@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endPoint: {fileID: 403429308}
   height: 4
-  duration: 1
+  duration: 6
   startPoint: {fileID: 361465222}
 --- !u!1 &1902271349
 GameObject:
