@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeController : MonoBehaviour
 {
     public static TimeController Instance;
+    public List<ITimeReactive> affectedObjects;
     private const float defaultTimeScale = 1f;
     public float curTimeScale;
     public float slowTimeScale;
@@ -17,7 +18,7 @@ public class TimeController : MonoBehaviour
     public void SetTimeScale(float timeScale)
     {
         this.curTimeScale = timeScale;
-
+        affectedObjects.Iterate(x => x.OnTimeScaleChanged(timeScale));
     }
 
     public void TriggerSlowMotion() => SetTimeScale(curTimeScale);

@@ -21,8 +21,8 @@ public class RunState : PlayerBaseState
     {
         Animator anim = player.anim;
         anim.CrossFade(WALK_HASH, normalizedTransitionDuration);
-        anim.speed = speed / defaultAnimSpeed;
-        Debug.Log(anim.speed);
+        player.SetStateAnimSpeed(speed / defaultAnimSpeed);
+        
     }
 
     private void UpdateAnimSpeed()
