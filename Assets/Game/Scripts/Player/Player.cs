@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     //public ActionType curAction;
     public ActionType nextAction;
     public AnimationEventHandler animEventHandler;
-    private object[] nextData;
+    public Animator anim;
+    private ActionData nextData;
     [SerializeField] private PlayerBaseState[] states;
     public PlayerBaseState curState;
     private void Awake()
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
         animEventHandler.onEventTrigger += OnAnimEventTrigger;
     }
 
-    public void ReceiveAction(ActionType type, params object[] data)
+    public void ReceiveAction(ActionType type, ActionData data)
     {
         nextAction = type;
         this.nextData = data;
