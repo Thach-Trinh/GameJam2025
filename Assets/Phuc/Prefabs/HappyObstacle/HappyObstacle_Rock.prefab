@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8352065386793702713, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_Name
-      value: JumpObstacle_Rock
+      value: HappyObstacle_Rock
       objectReference: {fileID: 0}
     - target: {fileID: 8919281784818002712, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -316,7 +316,8 @@ MonoBehaviour:
   _startTriggerBox: {fileID: 2242038077954870477}
   _endTriggerBox: {fileID: 1689248886690782278}
   _obstacleView: {fileID: 3493195636118186653}
-  _obstacleData: {fileID: 11400000, guid: 6f99a7b54dca7864ca8b588185a2c6dc, type: 2}
+  _obstacleData: {fileID: 11400000, guid: 39afdf08ebd2b3a44b72d2895ddf7a71, type: 2}
+  _isCorrectChoice: 0
   actionData:
     startPoint: {fileID: 125738125011152602}
     endPoint: {fileID: 8878060623881036059}
