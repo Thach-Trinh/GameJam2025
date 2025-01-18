@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private ActionData nextData;
     [SerializeField] private PlayerBaseState[] states;
     public PlayerBaseState curState;
+    private bool isCorrect;
     private void Awake()
     {
         Instance = this;
@@ -22,10 +23,11 @@ public class Player : MonoBehaviour
         animEventHandler.onEventTrigger += OnAnimEventTrigger;
     }
 
-    public void ReceiveAction(ActionType type, ActionData data)
+    public void ReceiveAction(ActionType type, ActionData data, bool isCorrect)
     {
         nextAction = type;
         this.nextData = data;
+        this.isCorrect = isCorrect;
     }
 
     public void ChangeState(ActionType type, ActionData data = null)
@@ -60,12 +62,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void InteractWithObstacle()
+    {
+        if (nextAction == ActionType.Idle || !isCorrect)
+        {
+            ChangeState(ActionType.Idle);
+            return;
+        }
+        ChangeState(nextAction, nextData);
+        OnFinishObstacle();
+    }
+
 
 
     public void OnFinishObstacle()
     {
         nextAction = ActionType.Idle;
         nextData = null;
-        ChangeState(ActionType.Run);
     }
 }

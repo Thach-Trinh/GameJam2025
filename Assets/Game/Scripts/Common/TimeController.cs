@@ -17,6 +17,7 @@ public class TimeController : MonoBehaviour
     public void SetTimeScale(float timeScale)
     {
         this.curTimeScale = timeScale;
+
     }
 
     public void TriggerSlowMotion() => SetTimeScale(curTimeScale);
