@@ -109,7 +109,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3185599545062811965}
@@ -207,6 +207,7 @@ MonoBehaviour:
   type: 2
   prepareSpeed: 1
   landSpeed: 1
+  normalizedTransitionDuration: 0.1
   curPhase: 0
   upAnimDuration: 1.333
   downAnimDuration: 0.583
