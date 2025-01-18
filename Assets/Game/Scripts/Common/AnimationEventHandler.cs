@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class AnimationEventHandler : MonoBehaviour
 {
-    public Action<int> intEvent;
-    public void OnIntEvent(int value)//dont rename this function
-    {
-        intEvent?.Invoke(value);
-    }
-
+    public Action<int> onEventTrigger;
+    public void OnEventTrigger(int value) => onEventTrigger?.Invoke(value);
 }

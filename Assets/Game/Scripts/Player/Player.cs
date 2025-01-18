@@ -9,10 +9,15 @@ public class Player : MonoBehaviour
 {
     //public ActionType curAction;
     public ActionType nextAction;
+    public AnimationEventHandler animEventHandler;
     private object[] nextData;
     [SerializeField] private PlayerBaseState[] states;
     public PlayerBaseState curState;
-    private void Awake() => states.Iterate(x => x.Init(this));
+    private void Awake()
+    {
+        states.Iterate(x => x.Init(this));
+        animEventHandler.onEventTrigger += OnAnimEventTrigger;
+    }
 
     public void ReceiveAction(ActionType type, params object[] data)
     {
@@ -36,6 +41,20 @@ public class Player : MonoBehaviour
     public void CustomUpdate(float timeScale)
     {
         curState?.UpdateState(Time.deltaTime, timeScale);
+    }
+
+    public void OnAnimEventTrigger(int value)
+    {
+        switch (value)
+        {
+            case 0:
+                {
+                    Debug.Log("Attack");
+                    CameraController.Instance.Shake();
+                    ChangeState(ActionType.Run);
+                    break;
+                }
+        }
     }
 
 

@@ -6,5 +6,6 @@ public enum ActionType
 {
     Idle,
     Run,
-    Jump
+    Jump,
+    Attack
 }
