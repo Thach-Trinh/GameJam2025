@@ -157,7 +157,8 @@ public class BubblePopup : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         Hide();
         VyHelper.PrintLog(enableLog, logTag, $"User selected {emotionType}, index {index}");
-        if (data.EmotionBubbleVisualDatas[index]._isCorrect)
+        bool isCorrect = data.EmotionBubbleVisualDatas[index]._isCorrect;
+        if (isCorrect)
         {
             VyHelper.PrintLog(enableLog, logTag, "Correct");
             currentObstacleBase.ChoiceCorrect();
@@ -166,7 +167,7 @@ public class BubblePopup : MonoBehaviour
         {
             VyHelper.PrintLog(enableLog, logTag, "Incorrect");
         }
-        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData());
+        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData(), isCorrect);
     }
 
     [ContextMenu("Hide")]

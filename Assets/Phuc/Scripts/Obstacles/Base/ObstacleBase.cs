@@ -45,6 +45,7 @@ public abstract class ObstacleBase : MonoBehaviour
     protected virtual void OnPlayerEnterEndTriggerBox()
     {
         Debug.Log("Player entered end trigger box");
+        Player.Instance.InteractWithObstacle();
     }
 
     private void OnDestroy()
