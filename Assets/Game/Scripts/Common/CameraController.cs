@@ -12,7 +12,9 @@ public class CameraController : MonoBehaviour
 
     [Space(10), Header("Following Setting")]
     public float smoothTime = 0.3f;
+    public Vector2 offset;
     private Vector2 velocity;
+
 
     [Space(10) ,Header("Zooming Setting")]
     public float zoomDuration;
@@ -45,7 +47,11 @@ public class CameraController : MonoBehaviour
     public void ZoomOut() => Zoom(maxSize);
     public void ZoomDefault()=>Zoom(defaulSize);
 
-    public void Follow(Vector3 target) => transform.position = Vector2.SmoothDamp(transform.position, target, ref velocity, smoothTime);
+    public void Follow(Vector3 target)
+    {
+        Vector2 requiredPos = (Vector2)target + offset;
+        transform.position = Vector2.SmoothDamp(transform.position, requiredPos, ref velocity, smoothTime);
+    }
 
     private void Zoom(float target)
     {

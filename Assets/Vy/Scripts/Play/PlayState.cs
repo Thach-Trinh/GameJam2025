@@ -30,8 +30,14 @@ public class PlayState : AbstractGameState
       gameController.Player.ChangeState(ActionType.Run);
       // TODO: Bat dau game, nhan vat di chuyen
    }
-   
-   public void OnPlayerPassedObstacle()
+
+    public override void OnUpdate()
+    {
+        base.OnUpdate();
+        Player.Instance.CustomUpdate(TimeController.Instance.curTimeScale);
+    }
+
+    public void OnPlayerPassedObstacle()
    {
       Debug.Log("Player passed obstacle");
       gameController.UserData.PassedObstacles++;

@@ -67,11 +67,21 @@ public class GameController : MonoBehaviour
         SetState(MenuState);
     }
 
+    private void Update()
+    {
+        currentState?.OnUpdate();
+    }
+
     public void SetState(AbstractGameState newState)
     {
         currentState?.OnExit();
         currentState = newState;
         currentState?.OnEnter();
+    }
+
+    private void LateUpdate()
+    {
+        CameraController.Instance.Follow(Player.Instance.transform.position);
     }
 
     public void CreateMap()
