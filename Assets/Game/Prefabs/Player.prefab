@@ -431,7 +431,8 @@ MonoBehaviour:
   type: 4
   epsilon: 0.001
   moveSpeed: 1
-  prepareAnimSpeed: 1
+  prepareAnimSpeed: 4
+  defaultMoveAnimSpeed: 0.1
   normalizedTransitionDuration: 0.1
 --- !u!1 &8024031946049068508
 GameObject:

@@ -10,6 +10,8 @@ public class DuckState : PlayerBaseState
     public float epsilon = 0.001f;
     public float moveSpeed = 1f;
     public float prepareAnimSpeed = 1f;
+    public float defaultMoveAnimSpeed = 0.1f;
+
     public float normalizedTransitionDuration = 0.1f;
     private Vector2 startPoint;
     private Vector2 endPoint;
@@ -34,13 +36,15 @@ public class DuckState : PlayerBaseState
     private void StartMove()
     {
         isMoving = true;
+        player.anim.CrossFade(MOVE_HASH, normalizedTransitionDuration);
+        player.SetStateAnimSpeed(moveSpeed / defaultMoveAnimSpeed);
     }
     public override void UpdateState(float deltaTime, float timeScale)
     {
         if (!isMoving)
             return;
-        trans.position = Vector2.MoveTowards(startPoint, endPoint, deltaTime * timeScale * moveSpeed);
-        if (Vector2.Distance(startPoint, endPoint) < epsilon)
+        trans.position = Vector2.MoveTowards(trans.position, endPoint, deltaTime * timeScale * moveSpeed);
+        if (Vector2.Distance(trans.position, endPoint) < epsilon)
             player.ChangeState(ActionType.Run);
     }
 

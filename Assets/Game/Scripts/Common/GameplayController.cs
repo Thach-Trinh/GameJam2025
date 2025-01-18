@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameplayController : MonoBehaviour
 {
     public static GameplayController Instance;
-    public Transform endPoint;
+
     public float height;
     public float duration;
     public Transform startPoint;
+    public Transform endJumpPoint;
+    public Transform endDuckPoint;
     public TimeController timeController => TimeController.Instance;
     private Player player => Player.Instance;
 
@@ -37,7 +39,7 @@ public class GameplayController : MonoBehaviour
             JumpActionData jumpData = new JumpActionData()
             {
                 startPoint = startPoint,
-                endPoint = endPoint,
+                endPoint = endJumpPoint,
                 height = height,
                 duration = duration
             };
@@ -54,7 +56,12 @@ public class GameplayController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            player.ChangeState(ActionType.Duck);
+            DuckActionData duckActionData = new DuckActionData()
+            {
+                pointToStartDuck = startPoint,
+                pointToEndDuck = endDuckPoint
+            };
+            player.ChangeState(ActionType.Duck, duckActionData);
         }
     }
 
