@@ -10,10 +10,7 @@ public class HappyObstacleView : ObstacleView
     
     public override void PlayObstacleEnterTriggerBoxAnimation()
     {
-        if (_animator != null)
-        {
-            InvokeRepeating(nameof(TriggerJump),0f,2f);
-        }
+        TriggerJump();
     }
     
     void TriggerJump()

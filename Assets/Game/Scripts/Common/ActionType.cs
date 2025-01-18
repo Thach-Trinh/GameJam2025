@@ -7,5 +7,8 @@ public enum ActionType
     Idle,
     Run,
     Jump,
-    Attack
+    Attack,
+    Duck,
+    Fly,
+    Scream
 }

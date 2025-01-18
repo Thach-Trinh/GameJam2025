@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AngryObstacle : ObstacleBaseGeneric<AttackActionData>
 {
-    [SerializeField] private float durationDelayExitAnim;
     protected override void OnPlayerEnterStartTriggerBox()
     {
         base.OnPlayerEnterStartTriggerBox();
@@ -16,7 +15,7 @@ public class AngryObstacle : ObstacleBaseGeneric<AttackActionData>
         base.OnPlayerEnterEndTriggerBox();
         if (_isCorrectChoice)
         {
-            _obstacleView.PlayObstacleExitAnimationWithDelayDuration(durationDelayExitAnim);
+            _obstacleView.OnPlayerSuccessInteract();
         }
     }
 }

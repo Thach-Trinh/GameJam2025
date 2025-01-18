@@ -12,7 +12,10 @@ public class ThachGameplay : MonoBehaviour
     public float duration;
     public Transform startPoint;
     public TimeController timeController;
-
+    private void Start()
+    {
+        player.ChangeState(ActionType.Idle);
+    }
     private void Update()
     {
         player.CustomUpdate(timeController.curTimeScale);
@@ -45,7 +48,7 @@ public class ThachGameplay : MonoBehaviour
 
     private void LateUpdate()
     {
-        CameraController.Instance.Follow(player.transform.position);
+        //CameraController.Instance.Follow(player.transform.position);
     }
 
 

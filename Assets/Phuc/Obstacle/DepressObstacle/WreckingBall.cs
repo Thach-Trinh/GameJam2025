@@ -15,7 +15,7 @@ public class WreckingBall : DepressedObstacleView
         
         while (true)
         {
-            ticker += Time.deltaTime;
+            ticker += Time.deltaTime * _globalTimeScale;
             float delta = ticker / _totalDuration;
             _animator.Play(MoveHash, 0, delta);
             if (delta >= 1)

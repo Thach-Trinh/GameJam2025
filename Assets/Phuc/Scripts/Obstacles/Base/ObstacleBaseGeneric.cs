@@ -5,4 +5,9 @@ using UnityEngine;
 public class ObstacleBaseGeneric<T> : ObstacleBase where T : ActionData
 {
     public T actionData;
+
+    public override ActionData GetData()
+    {
+        return actionData;
+    }
 }

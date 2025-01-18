@@ -6,12 +6,10 @@ using UnityEngine;
 public class ObstacleTriggerBox : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer boxView;
-    private ObstacleBase _obstacleBase;
     private bool _triggerredFlag;
     public Action _onPlayerTriggerObstacleBox;
-    public void InitObstacleBox(ObstacleBase obstacleBase)
+    public void InitObstacleBox()
     {
-        _obstacleBase = obstacleBase;
         _triggerredFlag = false;
         if (Application.isPlaying)
         {

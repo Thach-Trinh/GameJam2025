@@ -41,10 +41,12 @@ public class BubblePopup : MonoBehaviour
     [SerializeField] private float currentTime = 0;
 
     private Coroutine timerCoroutine;
+    private ObstacleBase currentObstacleBase;
 
-    public void Initialize(BubblePopupData data)
+    public void Initialize(BubblePopupData data,ObstacleBase obstacleBase)
     {
         this.data = data;
+        currentObstacleBase = obstacleBase;
         Uninitialize();
         if (data == null)
         {
@@ -155,6 +157,17 @@ public class BubblePopup : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         Hide();
         VyHelper.PrintLog(enableLog, logTag, $"User selected {emotionType}, index {index}");
+        bool isCorrect = data.EmotionBubbleVisualDatas[index]._isCorrect;
+        if (isCorrect)
+        {
+            VyHelper.PrintLog(enableLog, logTag, "Correct");
+            currentObstacleBase.ChoiceCorrect();
+        }
+        else
+        {
+            VyHelper.PrintLog(enableLog, logTag, "Incorrect");
+        }
+        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData(), isCorrect);
     }
 
     [ContextMenu("Hide")]

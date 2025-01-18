@@ -75,18 +75,18 @@ public class BubblePopupController : MonoBehaviour
 
         bubblePopup.OnBubblePopupSelectedEvent -= OnBubblePopupSelectedEventHandler;
         bubblePopup.OnBubblePopupSelectedEvent += OnBubblePopupSelectedEventHandler;
-        bubblePopup.Initialize(data);
+        bubblePopup.Initialize(data,null);
         bubblePopup.Show();
     }
     
-    public void ShowPopup(BubblePopupData data)
+    public void ShowPopup(BubblePopupData data,ObstacleBase obstacleBase)
     {
         if (bubblePopup == null)
             bubblePopup = CreatePopup();
         
         bubblePopup.OnBubblePopupSelectedEvent -= OnBubblePopupSelectedEventHandler;
         bubblePopup.OnBubblePopupSelectedEvent += OnBubblePopupSelectedEventHandler;
-        bubblePopup.Initialize(data);
+        bubblePopup.Initialize(data,obstacleBase);
         bubblePopup.Show();
     }
 
