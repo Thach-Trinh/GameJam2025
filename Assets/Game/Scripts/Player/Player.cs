@@ -9,11 +9,15 @@ using static UnityEditor.Rendering.InspectorCurveEditor;
 public class Player : MonoBehaviour, ITimeReactive
 {
     public static Player Instance;
-    public ActionType nextAction;
-    public AnimationEventHandler animEventHandler;
+    
+    public PlayerAnimationEventHandler animEventHandler;
     public Animator anim;
+    public Action onStartJumpEventTrigger;
+    public Action onFinishJumpEventTrigger;
+
+    public ActionType nextAction;
     private ActionData nextData;
-    [SerializeField] private PlayerBaseState[] states;
+    public PlayerBaseState[] states;
     public PlayerBaseState curState;
     private bool isCorrect;
     private float stateAnimSpeed;
@@ -24,12 +28,14 @@ public class Player : MonoBehaviour, ITimeReactive
         animEventHandler.onEventTrigger += OnAnimEventTrigger;
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        //Debug.Log(TimeController.Instance != null);
+        //Debug.Log(TimeController.Instance.affectedObjects != null);
         TimeController.Instance.affectedObjects.Add(this);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         TimeController.Instance.affectedObjects.Remove(this);
     }
@@ -72,15 +78,27 @@ public class Player : MonoBehaviour, ITimeReactive
         Debug.Log(anim.speed);
     }
 
-    public void OnAnimEventTrigger(int value)
+    public void OnAnimEventTrigger(PlayerAnimationEventType type)
     {
-        switch (value)
+        switch (type)
         {
-            case 0:
+            //case PlayerAnimationEventType.Attack:
+            //    {
+            //        Debug.Log("Attack");
+            //        CameraController.Instance.Shake();
+            //        ChangeState(ActionType.Run);
+            //        break;
+            //    }
+            case PlayerAnimationEventType.StartJump:
                 {
-                    Debug.Log("Attack");
-                    CameraController.Instance.Shake();
-                    ChangeState(ActionType.Run);
+                    onStartJumpEventTrigger?.Invoke();
+                    onStartJumpEventTrigger = null;
+                    break;
+                }
+            case PlayerAnimationEventType.FinishJump:
+                {
+                    onFinishJumpEventTrigger?.Invoke();
+                    onFinishJumpEventTrigger = null;
                     break;
                 }
         }

@@ -205,6 +205,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  prepareSpeed: 1
+  landSpeed: 1
+  curPhase: 0
+  upAnimDuration: 1.333
+  downAnimDuration: 0.583
 --- !u!1 &4853207750819787847
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +220,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5730828596720716007}
   - component: {fileID: 5407858553992440985}
-  - component: {fileID: 4395588997120936055}
   - component: {fileID: 7789817219414710167}
   - component: {fileID: 8190002668386051182}
   m_Layer: 3
@@ -254,27 +258,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d953e38c6493956438acf0a9f87ee277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextAction: 0
-  animEventHandler: {fileID: 4395588997120936055}
+  animEventHandler: {fileID: 8709775450432329420}
   anim: {fileID: 3269433933498930522}
+  nextAction: 0
   states:
   - {fileID: 2850271271990926543}
   - {fileID: 768617386666611025}
   - {fileID: 1191966758452287953}
   - {fileID: 6777659743629775705}
   curState: {fileID: 0}
---- !u!114 &4395588997120936055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4853207750819787847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056a2e314b9f5a744b6791134e54a101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &7789817219414710167
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -394,7 +386,7 @@ GameObject:
   - component: {fileID: 3185599545062811965}
   - component: {fileID: 3982819186058289467}
   - component: {fileID: 3269433933498930522}
-  - component: {fileID: 1557730508337049580}
+  - component: {fileID: 8709775450432329420}
   m_Layer: 3
   m_Name: Displayer
   m_TagString: Untagged
@@ -490,7 +482,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1557730508337049580
+--- !u!114 &8709775450432329420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,6 +491,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8024031946049068508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056a2e314b9f5a744b6791134e54a101, type: 3}
+  m_Script: {fileID: 11500000, guid: e1676d598c6a1704b9fe4c6ba4492e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

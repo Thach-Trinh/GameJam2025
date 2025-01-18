@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEventHandler : MonoBehaviour
+
+
+public class AnimationEventHandler<T> : MonoBehaviour where T : Enum
 {
-    public Action<int> onEventTrigger;
-    public void OnEventTrigger(int value) => onEventTrigger?.Invoke(value);
+    public Action<T> onEventTrigger;
+    public void OnEventTrigger(T value) => onEventTrigger?.Invoke(value);
 }
