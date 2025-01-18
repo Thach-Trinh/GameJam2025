@@ -36,7 +36,7 @@ public class PlayState : AbstractGameState
    public void OnPlayerWin()
    {
       Debug.Log("Player win");
-      gameController.SetState(gameController.OutroState);
+      gameController.SetState(gameController.LoadingState);
    }
    
    public void OnPlayerDie()
