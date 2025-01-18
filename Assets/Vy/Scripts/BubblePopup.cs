@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BubblePopupNS;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VyNS;
 
@@ -14,7 +15,12 @@ public class BubblePopup : MonoBehaviour
     [SerializeField] private BubblePopupData data;
     [SerializeField] private VyNS.ObjectPool objectPool;
 
+    [SerializeField, Header("Horizontal Layout")] private RectTransform horizontalBackground;
     [SerializeField] private HorizontalLayoutGroup horizontalLayoutGroup;
+    [SerializeField] private float horizontalSpacing = 30;
+    [SerializeField] private float itemWidth = 115;
+    [SerializeField] private float itemCountInMinWidthLayout = 3;
+    [SerializeField] private float offsetHorizontalBackground = 30;
     [SerializeField] private List<BubbleItem> bubbleItems;
 
     [SerializeField, Header("Animation")] private Animator animator;
@@ -37,18 +43,23 @@ public class BubblePopup : MonoBehaviour
             return;
         }
         
-        var emotions = data.GetEmotionVisuals();
-        foreach (var emotion in emotions)
-        {
-            var bubbleItem = GetBubbleItem(emotion);
-            bubbleItems.Add(bubbleItem);
-            if (bubbleItem.transform.parent != horizontalLayoutGroup.transform)
-                bubbleItem.transform.SetParent(horizontalLayoutGroup.transform, false);
-        }
+        UpdateHorizontalLayout(data.EmotionBubbleVisualDatas);
 
         StartTimer(data.SelectionTime);
     }
 
+    private void UpdateHorizontalLayout(List<EmotionBubbleVisualData> emotionVisuals)
+    {
+        foreach (var emotionVisual in emotionVisuals)
+        {
+            var bubbleItem = GetBubbleItem(emotionVisual);
+            bubbleItems.Add(bubbleItem);
+            if (bubbleItem.transform.parent != horizontalLayoutGroup.transform)
+                bubbleItem.transform.SetParent(horizontalLayoutGroup.transform, false);
+        }
+        
+        ResizeBubbleHorizontal();
+    }
     
     private void StartTimer(float timer)
     {
@@ -140,4 +151,18 @@ public class BubblePopup : MonoBehaviour
         bubbleItem.Initialize(visualData);
         return bubbleItem;
     }
+    
+    [ContextMenu("ResizeBubbleHorizontal")]
+    public void ResizeBubbleHorizontal()
+    {
+        var itemCount = horizontalLayoutGroup.transform.childCount;
+        var newWidth = itemCount * itemWidth + (itemCount - 1) * horizontalSpacing + offsetHorizontalBackground * 2;
+        VyHelper.PrintLog(enableLog, logTag, $"newWidth {newWidth} HorizontalLayoutMinWidth {HorizontalLayoutMinWidth}");
+        
+        newWidth = Mathf.Max(newWidth, HorizontalLayoutMinWidth);
+        var newSize = new Vector2(newWidth, horizontalBackground.sizeDelta.y);
+        horizontalBackground.sizeDelta = newSize;
+    }
+
+    private float HorizontalLayoutMinWidth => itemCountInMinWidthLayout * itemWidth + offsetHorizontalBackground * 2;
 }
