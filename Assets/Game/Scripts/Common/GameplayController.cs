@@ -52,6 +52,10 @@ public class GameplayController : MonoBehaviour
         {
             player.ChangeState(ActionType.Attack);
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            player.ChangeState(ActionType.Duck);
+        }
     }
 
     private void LateUpdate()

@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, ITimeReactive
     public Action onStartAttackEventTrigger;
     public Action onDealDamageEventTrigger;
     public Action onFinishAttackEventTrigger;
+    public Action onDuckEventTrigger;
     public ActionType nextAction;
     private ActionData nextData;
     public PlayerBaseState[] states;
@@ -111,6 +112,12 @@ public class Player : MonoBehaviour, ITimeReactive
                 {
                     onFinishAttackEventTrigger?.Invoke();
                     onFinishAttackEventTrigger = null;
+                    break;
+                }
+            case PlayerAnimationEventType.Duck:
+                {
+                    onDuckEventTrigger?.Invoke();
+                    onDuckEventTrigger = null;
                     break;
                 }
         }

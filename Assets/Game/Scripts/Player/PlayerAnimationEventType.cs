@@ -9,5 +9,6 @@ public enum PlayerAnimationEventType
     FinishJump,
     StartAttack,
     DealDamage,
-    FinishAttack
+    FinishAttack,
+    Duck,
 }
