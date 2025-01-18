@@ -1150,41 +1150,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3166790470353173596, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166790470353173596, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166790470353173596, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3166790470353173596, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4558369845135662476, guid: a3528eee9770fa247a5c146411189073, type: 3}
       propertyPath: m_Name
-      value: LoveObstacle_WaterPond
+      value: LoveObstacle_WaterPipe
       objectReference: {fileID: 0}
     - target: {fileID: 4558369845135662476, guid: a3528eee9770fa247a5c146411189073, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6216884499101164344, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8004313197761532470, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8004313197761532470, guid: a3528eee9770fa247a5c146411189073, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

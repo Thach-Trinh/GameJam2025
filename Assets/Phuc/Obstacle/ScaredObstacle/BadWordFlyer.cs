@@ -42,6 +42,7 @@ public class BadWordFlyer : ScaredObstacleView
             item.position = Vector3.MoveTowards(item.position, upwardPosition.position, 0.1f);
             yield return null;
         }
+        Destroy(item.gameObject);
     }
     
     IEnumerator FlyItemBackward(Transform item)
