@@ -15,7 +15,7 @@ public class LoadingState : AbstractGameState
    {
       loadingCanvas.gameObject.SetActive(true);
       loading.Show();
-      await UniTask.Delay(TimeSpan.FromSeconds(1f));
+      await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
       if (numberEnter == 0)
          gameController.SetState(gameController.IntroState);
       else 
