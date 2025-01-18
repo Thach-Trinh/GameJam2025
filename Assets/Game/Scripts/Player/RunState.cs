@@ -19,8 +19,10 @@ public class RunState : PlayerBaseState
 
     public override void EnterState(ActionData data)
     {
-        player.anim.CrossFade(WALK_HASH, normalizedTransitionDuration);
-
+        Animator anim = player.anim;
+        anim.CrossFade(WALK_HASH, normalizedTransitionDuration);
+        anim.speed = speed / defaultAnimSpeed;
+        Debug.Log(anim.speed);
     }
 
     private void UpdateAnimSpeed()

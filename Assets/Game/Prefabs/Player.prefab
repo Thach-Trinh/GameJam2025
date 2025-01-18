@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  speed: 4
+  speed: 2
+  defaultAnimSpeed: 0.2
   normalizedTransitionDuration: 0.1
-  layer: -1
 --- !u!1 &2668288931198958521
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   normalizedTransitionDuration: 0.1
-  layer: -1
 --- !u!1 &8024031946049068508
 GameObject:
   m_ObjectHideFlags: 0

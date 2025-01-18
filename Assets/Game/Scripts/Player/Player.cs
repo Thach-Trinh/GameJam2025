@@ -8,11 +8,7 @@ using static UnityEditor.Rendering.InspectorCurveEditor;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
-    
-    
-
-    //public ActionType curAction;
+    public static Player Instance;
     public ActionType nextAction;
     public AnimationEventHandler animEventHandler;
     public Animator anim;
