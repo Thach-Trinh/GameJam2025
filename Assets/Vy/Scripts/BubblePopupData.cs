@@ -22,5 +22,6 @@ namespace VyNS
     {
         public EmotionType emotionType;
         public string textDescription;
+        public bool _isCorrect;
     }
 }
