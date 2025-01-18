@@ -14,7 +14,9 @@ public class Player : MonoBehaviour, ITimeReactive
     public Animator anim;
     public Action onStartJumpEventTrigger;
     public Action onFinishJumpEventTrigger;
-
+    public Action onStartAttackEventTrigger;
+    public Action onDealDamageEventTrigger;
+    public Action onFinishAttackEventTrigger;
     public ActionType nextAction;
     private ActionData nextData;
     public PlayerBaseState[] states;
@@ -82,13 +84,6 @@ public class Player : MonoBehaviour, ITimeReactive
     {
         switch (type)
         {
-            //case PlayerAnimationEventType.Attack:
-            //    {
-            //        Debug.Log("Attack");
-            //        CameraController.Instance.Shake();
-            //        ChangeState(ActionType.Run);
-            //        break;
-            //    }
             case PlayerAnimationEventType.StartJump:
                 {
                     onStartJumpEventTrigger?.Invoke();
@@ -99,6 +94,23 @@ public class Player : MonoBehaviour, ITimeReactive
                 {
                     onFinishJumpEventTrigger?.Invoke();
                     onFinishJumpEventTrigger = null;
+                    break;
+                }
+            case PlayerAnimationEventType.StartAttack:
+                {
+                    onStartAttackEventTrigger?.Invoke();
+                    onStartAttackEventTrigger = null;
+                    break;
+                }
+            case PlayerAnimationEventType.DealDamage:
+                {
+                    CameraController.Instance.Shake();
+                    break;
+                }
+            case PlayerAnimationEventType.FinishAttack:
+                {
+                    onFinishAttackEventTrigger?.Invoke();
+                    onFinishAttackEventTrigger = null;
                     break;
                 }
         }

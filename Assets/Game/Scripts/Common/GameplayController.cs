@@ -48,6 +48,10 @@ public class GameplayController : MonoBehaviour
             player.ChangeState(ActionType.Idle);
             player.transform.position = startPoint.position;
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            player.ChangeState(ActionType.Attack);
+        }
     }
 
     private void LateUpdate()
