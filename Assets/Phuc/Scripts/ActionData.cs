@@ -34,3 +34,10 @@ public class FlyActionData : ActionData //For LoveObstacle
     public Transform startPoint;
     public Transform endPoint;
 }
+
+[Serializable]
+public class ScreamingActionData : ActionData //For ScaredObstacle
+{
+    public Transform pointToScream;
+    public float duration;
+}
