@@ -22,6 +22,7 @@ public class AngryObstacleView : ObstacleView
     public override void OnPlayerSuccessInteract()
     {
         PlayParticleSmoke();
+        AudioController.Instance.PlaySound(SoundName.THUD);
         TriggerAnimation(DisappearHash);
     }
 

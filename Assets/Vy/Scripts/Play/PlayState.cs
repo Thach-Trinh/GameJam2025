@@ -22,7 +22,7 @@ public class PlayState : AbstractGameState
       // TODO: lang nghe player vuot duoc chuong ngai vat
       
       playCanvas.gameObject.SetActive(true);
-
+      AudioController.Instance.PlaySound(SoundName.ALARM);
       await UniTask.Delay(TimeSpan.FromSeconds(2f));
       
       playCanvas.gameObject.SetActive(false);

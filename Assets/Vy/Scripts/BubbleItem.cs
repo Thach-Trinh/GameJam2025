@@ -43,6 +43,7 @@ namespace VyNS
         public void Pop()
         {
             GetEmotionObject(emotionType).Pop();
+            AudioController.Instance.PlaySound(SoundName.POP_BUBBLE);
         }
 
         public void OnShow()
