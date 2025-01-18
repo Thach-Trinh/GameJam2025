@@ -29,7 +29,12 @@ public class AngryObstacleView : ObstacleView
     
     IEnumerator DelayExitAnimation(float duration)
     {
-        yield return new WaitForSeconds(duration);
+        float ticker = 0;
+        while (ticker < duration)
+        {
+            ticker += Time.deltaTime*_globalTimeScale;
+            yield return null;
+        }
         TriggerAnimation(DisappearHash);
     }
     

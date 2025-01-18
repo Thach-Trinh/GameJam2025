@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8352065386793702713, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_Name
-      value: LoveObstacle_WaterPond
+      value: LoveObstacle_Underground
       objectReference: {fileID: 0}
     - target: {fileID: 8352065386793702713, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_IsActive
@@ -565,7 +565,7 @@ MonoBehaviour:
   _startTriggerBox: {fileID: 2263722091099156369}
   _endTriggerBox: {fileID: 1659119164014509850}
   _obstacleView: {fileID: 6216884499101164344}
-  _obstacleData: {fileID: 11400000, guid: 61a88cd8cf2b60940a99ad0f09317928, type: 2}
+  _obstacleData: {fileID: 11400000, guid: cd9069321114dc14c8ae7b9aec0e40ba, type: 2}
   _isCorrectChoice: 0
   actionData:
     startPoint: {fileID: 7512374423221466809}

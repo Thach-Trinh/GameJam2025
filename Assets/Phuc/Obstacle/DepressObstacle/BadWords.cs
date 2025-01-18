@@ -12,8 +12,8 @@ public class BadWords : DepressedObstacleView
         float ticker = 0;
         while (ticker < destroyDuration)
         {
-            ticker += Time.deltaTime;
-            badWordsTransform.position += Vector3.left * (speed * Time.deltaTime);
+            ticker += Time.deltaTime *_globalTimeScale;
+            badWordsTransform.position += Vector3.left * (speed * Time.deltaTime* _globalTimeScale);
             yield return null;
         }
         Destroy(badWordsTransform.gameObject);

@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c43d0e622679bd24ea2f4268d74c927b, type: 3}
-  m_Name: Love_SharpObject
+  m_Name: Depressed_BadWords
   m_EditorClassIdentifier: 
   emotionVisuals:
   - emotionType: 0
+    textDescription: 
+    _isCorrect: 0
+  - emotionType: 3
     textDescription: 
     _isCorrect: 1
   - emotionType: 1
     textDescription: 
     _isCorrect: 0
-  - emotionType: 3
-    textDescription: 
-    _isCorrect: 0
-  - emotionType: 4
-    textDescription: 
-    _isCorrect: 0
   selectionTime: 3
-  hint: Hey!! Those spike could've killed me
+  hint: Please ... Please stop yelling at me !!

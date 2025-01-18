@@ -23,7 +23,7 @@ public class OfficeTool : DepressedObstacleView
         float targetX = _isMoveRight ? rightTransform.position.x : leftTransform.position.x;
         while (true)
         {
-            itemTfm.position = Vector3.MoveTowards(itemTfm.position, new Vector3(targetX, itemTfm.position.y, itemTfm.position.z), speed * Time.deltaTime);
+            itemTfm.position = Vector3.MoveTowards(itemTfm.position, new Vector3(targetX, itemTfm.position.y, itemTfm.position.z), speed * Time.deltaTime*_globalTimeScale);
             //flip item if reach target
             if (Mathf.Abs(itemTfm.position.x - targetX) < 0.01f)
             {

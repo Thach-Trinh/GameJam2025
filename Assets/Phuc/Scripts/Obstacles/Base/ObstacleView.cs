@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleView : MonoBehaviour
 {
+    protected float _globalTimeScale => TimeController.Instance.curTimeScale;
     public virtual void PlayObstacleEnterTriggerBoxAnimation()
     {
         // Play enter animation

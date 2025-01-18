@@ -33,13 +33,12 @@ public class BadWordFlyer : ScaredObstacleView
     {
         while (Vector2.Distance(item.position, stopPosition.position) > 0.01f)
         {
-            item.position = Vector3.MoveTowards(item.position, stopPosition.position, 0.1f);
+            item.position = Vector3.MoveTowards(item.position, stopPosition.position, speed * Time.deltaTime * _globalTimeScale);
             yield return null;
         }
-        
         while (Vector2.Distance(item.position, upwardPosition.position) > 0.01f)
         {
-            item.position = Vector3.MoveTowards(item.position, upwardPosition.position, 0.1f);
+            item.position = Vector3.MoveTowards(item.position, upwardPosition.position, speed * Time.deltaTime * _globalTimeScale);
             yield return null;
         }
         Destroy(item.gameObject);
@@ -51,7 +50,7 @@ public class BadWordFlyer : ScaredObstacleView
         while (ticker < destroyDuration)
         {
             ticker += Time.deltaTime;
-            item.position += Vector3.left * (speed * Time.deltaTime);
+            item.position += Vector3.left * (speed * Time.deltaTime* _globalTimeScale);
             yield return null;
         }
         Destroy(item.gameObject);

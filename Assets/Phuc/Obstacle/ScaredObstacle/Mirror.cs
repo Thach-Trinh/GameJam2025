@@ -5,26 +5,42 @@ using UnityEngine;
 public class Mirror : ScaredObstacleView
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Sprite _mirrorNormal;
-    [SerializeField] private Sprite _mirrorAppearSelf;
-    [SerializeField] private Sprite _mirrorBroken;
+    [SerializeField] private List<Sprite> _mirrorSprites;
     [SerializeField] private float delay;
     protected override IEnumerator PlayScaredAnimationChoiceCorrectIE()
     {
-        Debug.Log("PlayScaredAnimationChoiceCorrectIE");
-        _spriteRenderer.sprite = _mirrorNormal;
-        yield return new WaitForSeconds(delay);
-        _spriteRenderer.sprite = _mirrorAppearSelf;
-        yield return new WaitForSeconds(delay);
-        _spriteRenderer.sprite = _mirrorBroken;
-        yield return new WaitForSeconds(delay);
+        float ticker = 0;
+        int spriteIndex = 0;
+        int spriteRequired = 3;
+        while (spriteIndex < spriteRequired)
+        {
+            ticker += Time.deltaTime*_globalTimeScale;
+            if (ticker >= delay)
+            {
+                _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
+                spriteIndex++;
+                ticker = 0;
+            }
+            yield return null;
+        }
         _spriteRenderer.enabled = false;
     }
 
     protected override IEnumerator PlayScaredAnimationChoiceInCorrectIE()
     {
-        _spriteRenderer.sprite = _mirrorNormal;
-        yield return new WaitForSeconds(delay);
-        _spriteRenderer.sprite = _mirrorAppearSelf;
+        float ticker = 0;
+        int spriteIndex = 0;
+        int spriteRequired = 2;
+        while (spriteIndex < spriteRequired)
+        {
+            ticker += Time.deltaTime*_globalTimeScale;
+            if (ticker >= delay)
+            {
+                _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
+                spriteIndex++;
+                ticker = 0;
+            }
+            yield return null;
+        }
     }
 }

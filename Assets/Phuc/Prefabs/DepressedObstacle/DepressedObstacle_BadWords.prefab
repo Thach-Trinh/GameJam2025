@@ -254,7 +254,7 @@ MonoBehaviour:
   _startTriggerBox: {fileID: 7537092916344483087}
   _endTriggerBox: {fileID: 6986518140827516292}
   _obstacleView: {fileID: 8803687438439255024}
-  _obstacleData: {fileID: 11400000, guid: cd6cc2c057eefd6458ee1dc30c4b7ed2, type: 2}
+  _obstacleData: {fileID: 11400000, guid: d5b4f580f6c92d848bdf99135e94eb54, type: 2}
   _isCorrectChoice: 0
   actionData:
     pointToStartDuck: {fileID: 2283933664450475047}
