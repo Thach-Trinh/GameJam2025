@@ -935,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3388793990896146907, guid: 27a1a859141500c4daa749d721e4ad78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.309998
+      value: 9.29
       objectReference: {fileID: 0}
     - target: {fileID: 4098518670808187786, guid: 27a1a859141500c4daa749d721e4ad78, type: 3}
       propertyPath: customTimeScale
@@ -1004,6 +1004,10 @@ PrefabInstance:
     - target: {fileID: 8516216440936802471, guid: 27a1a859141500c4daa749d721e4ad78, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803687438439255024, guid: 27a1a859141500c4daa749d721e4ad78, type: 3}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
