@@ -15,8 +15,7 @@ public class CameraController : MonoBehaviour
     public Vector2 offset;
     private Vector2 velocity;
 
-
-    [Space(10) ,Header("Zooming Setting")]
+    [Space(10), Header("Zooming Setting")]
     public float zoomDuration;
     public AnimationCurve curve;
     public float minSize;
@@ -28,10 +27,7 @@ public class CameraController : MonoBehaviour
     public int shakeVibrato;
     private bool isShaking;
 
-
     private IEnumerator zoomRoutine;
-
-
 
     private void Awake() => Instance = this;
 
@@ -45,17 +41,17 @@ public class CameraController : MonoBehaviour
 
     public void ZoomIn() => Zoom(minSize);
     public void ZoomOut() => Zoom(maxSize);
-    public void ZoomDefault()=>Zoom(defaulSize);
+    public void ZoomDefault() => Zoom(defaulSize);
 
     public void Follow(Vector3 target)
     {
-        Vector2 requiredPos = (Vector2)target + offset;
+        Vector2 requiredPos = new Vector2(target.x + offset.x, transform.position.y);
         transform.position = Vector2.SmoothDamp(transform.position, requiredPos, ref velocity, smoothTime);
     }
 
     public void SetPos(Vector3 target)
     {
-        Vector2 requiredPos = (Vector2)target + offset;
+        Vector2 requiredPos = new Vector2(target.x + offset.x, transform.position.y);
         transform.position = requiredPos;
     }
 
