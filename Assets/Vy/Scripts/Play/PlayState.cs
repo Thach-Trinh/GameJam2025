@@ -12,6 +12,7 @@ public class PlayState : AbstractGameState
    {
       Player.Instance.anim.enabled = false;
         Player.Instance.anim.gameObject.SetActive(true);
+        Player.Instance.happyPoint = 0;
         Debug.Log("PlayState OnEnter");
         CameraController.Instance.SetPos(Player.Instance.transform.position);
       gameController.Player.ChangeState(ActionType.Idle);

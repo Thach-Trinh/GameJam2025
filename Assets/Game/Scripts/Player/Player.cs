@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BubblePopupNS;
 using UnityEngine;
 
 
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour, ITimeReactive
     public ObstacleBase nextObstacle;
     public PlayerBaseState[] states;
     public PlayerBaseState curState;
+    public int happyPoint;
     private bool isCorrect;
     private float stateAnimSpeed;
     private void Awake()
@@ -45,9 +47,11 @@ public class Player : MonoBehaviour, ITimeReactive
         TimeController.Instance.affectedObjects.Remove(this);
     }
 
-    public void ReceiveAction(ActionType type, ActionData data, bool isCorrect, ObstacleBase nextObstacle)
+    public void ReceiveEmotion(EmotionType type, ActionData data, bool isCorrect, ObstacleBase nextObstacle)
     {
-        nextAction = type;
+        nextAction = BubbleBridge.GetAction(type);
+        if ((type == EmotionType.Love || type == EmotionType.Happy) && isCorrect)
+            happyPoint++;
         this.nextData = data;
         this.isCorrect = isCorrect;
         this.nextObstacle = nextObstacle;

@@ -172,7 +172,7 @@ public class BubblePopup : MonoBehaviour
         {
             VyHelper.PrintLog(enableLog, logTag, "Incorrect");
         }
-        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData(), isCorrect, currentObstacleBase);
+        Player.Instance.ReceiveEmotion(emotionType, currentObstacleBase.GetData(), isCorrect, currentObstacleBase);
         
         TimeController.Instance.SetTimeScale(1);
     }

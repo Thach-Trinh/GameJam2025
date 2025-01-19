@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class RunState : PlayerBaseState
 {
-    private static int WALK_HASH = Animator.StringToHash("Walk");
-    public float speed;
-    public float defaultAnimSpeed = 0.1f;
+    private static int SAD_HASH = Animator.StringToHash("SadWalk");
+    private static int HAPPY_HASH = Animator.StringToHash("HappyWalk");
+    public float sadSpeed = 2f;
+    public float happySpeed = 2f;
+    public float defaultSadAnimSpeed = 0.2f;
+    public float defaultHappyAnimSpeed = 0.2f;
+    public int happyThreshold = 3;
     protected Transform trans;
     public float normalizedTransitionDuration;
-    //public int layer;
+    private float speed;
+
 
     public override void Init(Player player)
     {
@@ -20,29 +25,18 @@ public class RunState : PlayerBaseState
     public override void EnterState(ActionData data)
     {
         Animator anim = player.anim;
-        anim.CrossFade(WALK_HASH, normalizedTransitionDuration);
+        bool isHappy = player.happyPoint >= happyThreshold;
+        speed = isHappy ? happySpeed : sadSpeed;
+        int hash = isHappy ? HAPPY_HASH : SAD_HASH;
+        float defaultAnimSpeed = isHappy ? defaultHappyAnimSpeed : defaultSadAnimSpeed;
+        anim.CrossFade(hash, normalizedTransitionDuration);
         player.SetStateAnimSpeed(speed / defaultAnimSpeed);
         
-    }
-
-    private void UpdateAnimSpeed()
-    {
-        //float animSpeed = 1;// controller.Character.Gear.HasGear(movementType) ? gearAnimSpeed : defaultAnimSpeed;
-        ////controller.Character.Anim.speed = speed / animSpeed;
     }
 
     public override void UpdateState(float deltaTime, float timeScale)
     {
         trans.Translate(speed * deltaTime * timeScale * Vector2.right);
-        ////speed = GetSpeed(controller.Character.Stat);
-        //Vector3 oldPos = trans.position;
-        //trans.position = Vector3.MoveTowards(trans.position, destination, speed * Time.deltaTime);
-        //controller.Character.traveledDistance += Vector3.Distance(trans.position, oldPos);
-        ////controller.Character.NamePanel.Follow(trans.position);
-        //if (trans.position == destination)
-        //{
-        //    controller.Character.FinishTerrain();
-        //}
     }
 
 

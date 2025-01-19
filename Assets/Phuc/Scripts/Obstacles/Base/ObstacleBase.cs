@@ -67,7 +67,7 @@ public abstract class ObstacleBase : MonoBehaviour
         var timeScale = TimeController.Instance.curTimeScale;
         if (timeScale != 0 && playerSpeed != null)
         {
-            var returnTime = distance / (playerSpeed.speed * timeScale);
+            var returnTime = distance / (playerSpeed.sadSpeed * timeScale);
             return returnTime;
         }
 
