@@ -11,6 +11,7 @@ public abstract class ObstacleBase : MonoBehaviour
     [SerializeField] protected ObstacleView _obstacleView;
     [SerializeField] private BubblePopupData _obstacleData;
     [SerializeField] protected bool _isCorrectChoice;
+    [SerializeField] private float customTimeScale;
     public abstract ActionData GetData();
     void Start()
     {
@@ -48,9 +49,29 @@ public abstract class ObstacleBase : MonoBehaviour
         Debug.Log("Player entered start trigger box");
         if (BubblePopupController.Instance != null)
         {
-            _obstacleData.EmotionBubbleVisualDatas.Shuffle();
-            BubblePopupController.Instance.ShowPopup(_obstacleData,this);
+            TimeController.Instance.SetTimeScale(customTimeScale);
+            var popupData = ScriptableObject.CreateInstance<BubblePopupData>();
+            popupData.emotionVisuals = new List<EmotionBubbleVisualData>(_obstacleData.EmotionBubbleVisualDatas);
+            popupData.hint = _obstacleData.Hint;
+            float time = GetPopupTime();
+            popupData.selectionTime = time > 0 ? time : _obstacleData.SelectionTime;
+            popupData.emotionVisuals.Shuffle();
+            BubblePopupController.Instance.ShowPopup(popupData,this);
         }
+    }
+    
+    float GetPopupTime()
+    {
+        float distance = _endTriggerBox.transform.position.x - _startTriggerBox.transform.position.x;
+        var playerSpeed = Player.Instance.curState as RunState;
+        var timeScale = TimeController.Instance.curTimeScale;
+        if (timeScale != 0 && playerSpeed != null)
+        {
+            var returnTime = distance / (playerSpeed.speed * timeScale);
+            return returnTime;
+        }
+
+        return -1;
     }
     
     protected virtual void OnPlayerEnterEndTriggerBox()

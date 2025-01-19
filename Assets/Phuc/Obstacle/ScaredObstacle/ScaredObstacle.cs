@@ -6,7 +6,12 @@ public class ScaredObstacle : ObstacleBaseGeneric<ScreamingActionData>
 {
     protected override void OnPlayerEnterEndTriggerBox()
     {
-        base.OnPlayerEnterStartTriggerBox();
+        base.OnPlayerEnterEndTriggerBox();
         _obstacleView.PlayObstacleExitTriggerBoxAnimation(_isCorrectChoice);
+    }
+    public override void OnPlayerSuccessInteract()
+    {
+        base.OnPlayerSuccessInteract();
+        _obstacleView.OnPlayerSuccessInteract();
     }
 }

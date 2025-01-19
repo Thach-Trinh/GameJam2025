@@ -6,14 +6,15 @@ public class ScaredObstacleView : ObstacleView
 {
     public override void PlayObstacleExitTriggerBoxAnimation(bool isCorrectChoice)
     {
-        if (isCorrectChoice)
-        {
-            StartCoroutine(PlayScaredAnimationChoiceCorrectIE());
-        }
-        else
+        if (!isCorrectChoice)
         {
             StartCoroutine(PlayScaredAnimationChoiceInCorrectIE());
         }
+    }
+    
+    public override void OnPlayerSuccessInteract()
+    {
+        StartCoroutine(PlayScaredAnimationChoiceCorrectIE());
     }
 
     protected virtual IEnumerator PlayScaredAnimationChoiceCorrectIE()

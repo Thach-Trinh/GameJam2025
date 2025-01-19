@@ -19,11 +19,11 @@ MonoBehaviour:
   - emotionType: 1
     textDescription: 
     _isCorrect: 0
-  - emotionType: 4
-    textDescription: 
-    _isCorrect: 0
   - emotionType: 3
     textDescription: 
     _isCorrect: 1
-  selectionTime: 10
+  - emotionType: 4
+    textDescription: 
+    _isCorrect: 0
+  selectionTime: 7
   hint: Those boring-familiar objects make me so stressful ....

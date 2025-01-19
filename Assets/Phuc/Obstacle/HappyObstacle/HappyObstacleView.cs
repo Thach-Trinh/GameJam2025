@@ -18,4 +18,10 @@ public class HappyObstacleView : ObstacleView
         if (_animator == null) return;
         _animator.SetTrigger(JumpHash);
     }
+    
+    public override void OnTimeScaleChanged(float timeScale)
+    {
+        if (_animator == null) return;
+        _animator.speed = timeScale;
+    }
 }

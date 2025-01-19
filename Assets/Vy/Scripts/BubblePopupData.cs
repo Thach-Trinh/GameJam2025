@@ -8,9 +8,9 @@ namespace VyNS
     [CreateAssetMenu(fileName = "new BubblePopupData", menuName = "Vy/BubblePopupData")]
     public class BubblePopupData : ScriptableObject
     {
-        [SerializeField] private List<EmotionBubbleVisualData> emotionVisuals;
-        [SerializeField] private float selectionTime = 3f;
-        [SerializeField] private string hint;
+        [SerializeField] public List<EmotionBubbleVisualData> emotionVisuals;
+        [SerializeField] public float selectionTime = 3f;
+        [SerializeField] public string hint;
         
         public string Hint => hint;
         public List<EmotionBubbleVisualData> EmotionBubbleVisualDatas => emotionVisuals;

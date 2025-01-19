@@ -25,5 +25,5 @@ MonoBehaviour:
   - emotionType: 0
     textDescription: 
     _isCorrect: 1
-  selectionTime: 10
+  selectionTime: 7
   hint: I don't want to stuck in those underground pipes

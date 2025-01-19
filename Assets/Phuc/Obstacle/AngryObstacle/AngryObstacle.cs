@@ -12,7 +12,7 @@ public class AngryObstacle : ObstacleBaseGeneric<AttackActionData>
     
     public override void OnPlayerSuccessInteract()
     {
-        base.OnPlayerEnterEndTriggerBox();
+        base.OnPlayerSuccessInteract();
         if (_isCorrectChoice)
         {
             _obstacleView.OnPlayerSuccessInteract();

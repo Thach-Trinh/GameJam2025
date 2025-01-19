@@ -22,5 +22,5 @@ MonoBehaviour:
   - emotionType: 2
     textDescription: 
     _isCorrect: 1
-  selectionTime: 10
+  selectionTime: 5
   hint: Oh no... I will hit that stone overthere

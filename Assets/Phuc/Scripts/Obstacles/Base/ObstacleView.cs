@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleView : MonoBehaviour
+public class ObstacleView : MonoBehaviour, ITimeReactive
 {
     protected float _globalTimeScale => TimeController.Instance != null? TimeController.Instance.curTimeScale : 1;
     public virtual void PlayObstacleEnterTriggerBoxAnimation()
@@ -23,5 +23,10 @@ public class ObstacleView : MonoBehaviour
     public virtual void OnPlayerSuccessInteract()
     {
         // Play success interact animation
+    }
+
+    public virtual void OnTimeScaleChanged(float timeScale)
+    {
+        
     }
 }

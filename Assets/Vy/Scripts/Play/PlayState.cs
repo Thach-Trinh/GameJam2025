@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class PlayState : AbstractGameState
@@ -26,7 +25,7 @@ public class PlayState : AbstractGameState
       playCanvas.gameObject.SetActive(true);
       AudioController.Instance.PlaySound(SoundName.ALARM);
       await UniTask.Delay(TimeSpan.FromSeconds(2f));
-      
+      TimeController.Instance.GetAllAffectedObjects();
       playCanvas.gameObject.SetActive(false);
       
       gameController.Player.ChangeState(ActionType.Run);
