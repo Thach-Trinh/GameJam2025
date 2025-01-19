@@ -92,6 +92,11 @@ public class Player : MonoBehaviour, ITimeReactive
     {
         switch (type)
         {
+            case PlayerAnimationEventType.FootStep:
+                {
+                    AudioController.Instance.PlaySound(SoundName.FOOTSTEP);
+                    break;
+                }
             case PlayerAnimationEventType.StartJump:
                 {
                     onStartJumpEventTrigger?.Invoke();

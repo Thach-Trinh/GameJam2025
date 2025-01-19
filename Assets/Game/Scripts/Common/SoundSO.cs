@@ -37,4 +37,5 @@ public enum SoundName
     WHISPERS,
     BOSS_YELLING,
     ITEM_FLYER,
+    FOOTSTEP
 }
