@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Plugins.Options;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum JumpPhaseType
@@ -24,6 +25,10 @@ public class JumpState : PlayerBaseState
     public float prepareSpeed = 1f;
     public float landSpeed = 1f;
     public float normalizedTransitionDuration = 0.1f;
+    public Vector2 prepareOffset = new Vector2(-0.47f, 0.79f);
+    public Vector2 startOffset = new Vector2(-0.47f, 0.79f);
+    public Vector2 middleOffset;//-0.47,-0.99
+    public Vector2 endOffset;//-0.52,0.71
 
     public JumpPhaseType curPhase;
     private Transform trans;
@@ -61,6 +66,7 @@ public class JumpState : PlayerBaseState
         player.SetStateAnimSpeed(prepareSpeed);
         player.anim.CrossFade(PREPARE_HASH, normalizedTransitionDuration);
         player.onStartJumpEventTrigger = StartJump;
+        trans.position = startPoint + prepareOffset;
         //float sum = requiredInitialVelocity + Mathf.Sqrt(2 * GRAVITY * (startPoint.y + height - endPoint.y));
         //simulatedDuration = sum / GRAVITY;        
     }
@@ -68,6 +74,7 @@ public class JumpState : PlayerBaseState
     private void StartJump()
     {
         curPhase = JumpPhaseType.Up;
+        //trans.position = startPoint + prepareOffset;
         player.anim.CrossFade(UP_HASH, normalizedTransitionDuration);
         float requiredUpDuration = requiredDuration * simulatedUpDuration / simulatedTotalDuration;
         player.SetStateAnimSpeed(upAnimDuration / requiredUpDuration);
@@ -88,7 +95,10 @@ public class JumpState : PlayerBaseState
                     float x = Mathf.Lerp(startPoint.x, endPoint.x, t);
                     float simulatedTime = t * simulatedTotalDuration;
                     float y = -GRAVITY * Mathf.Pow(simulatedTime, 2) / 2 + requiredInitialVelocity * simulatedTime + startPoint.y;
-                    trans.position = new Vector2(x, y);
+                    float lerp = Mathf.InverseLerp(0, simulatedUpDuration, simulatedTime);
+                    Vector2 offset = Vector2.Lerp(startOffset, middleOffset, lerp);
+                    //Vector2 offset = Vector2.zero;
+                    trans.position = new Vector2(x, y) + offset;
                     if (simulatedTime >= simulatedUpDuration)
                     {
                         curPhase = JumpPhaseType.Down;
@@ -105,7 +115,10 @@ public class JumpState : PlayerBaseState
                     float x = Mathf.Lerp(startPoint.x, endPoint.x, t);
                     float simulatedTime = t * simulatedTotalDuration;
                     float y = -GRAVITY * Mathf.Pow(simulatedTime, 2) / 2 + requiredInitialVelocity * simulatedTime + startPoint.y;
-                    trans.position = new Vector2(x, y);
+                    float lerp = Mathf.InverseLerp(simulatedUpDuration, simulatedTotalDuration, simulatedTime);
+                    Vector2 offset = Vector2.Lerp(middleOffset, endOffset, lerp);
+                    //Vector2 offset = Vector2.zero;
+                    trans.position = new Vector2(x, y) + offset;
                     elapsedTime += deltaTime * timeScale;
                     if (elapsedTime >= requiredDuration)
                     {
@@ -139,5 +152,16 @@ public class JumpState : PlayerBaseState
 
     public override void ExitState()
     {
+        trans.position = endPoint;
     }
+
+    //public static Vector2 Remap(Vector2 value, Vector2 inMin, Vector2 inMax, Vector2 outMin, Vector2 outMax)
+    //{
+    //    float tX = Mathf.InverseLerp(inMin.x, inMax.x, value.x);
+    //    float tY = Mathf.InverseLerp(inMin.y, inMax.y, value.y);
+    //    float newX = Mathf.Lerp(outMin.x, outMax.x, tX);
+    //    float newY = Mathf.Lerp(outMin.y, outMax.y, tY);
+
+    //    return new Vector2(newX, newY);
+    //}
 }

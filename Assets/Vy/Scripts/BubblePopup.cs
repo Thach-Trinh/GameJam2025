@@ -179,7 +179,7 @@ public class BubblePopup : MonoBehaviour
                 playState?.OnPlayerDie();
             }
         }
-        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData(), isCorrect);
+        Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData(), isCorrect, currentObstacleBase);
     }
 
     [ContextMenu("Hide")]
