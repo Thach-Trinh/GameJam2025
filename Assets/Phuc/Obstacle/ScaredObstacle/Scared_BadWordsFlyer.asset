@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Scared_BadWordsFlyer
   m_EditorClassIdentifier: 
   emotionVisuals:
-  - emotionType: 4
-    textDescription: 
-    _isCorrect: 1
-  - emotionType: 0
-    textDescription: 
-    _isCorrect: 0
   - emotionType: 2
     textDescription: 
     _isCorrect: 0
-  selectionTime: 10
+  - emotionType: 0
+    textDescription: 
+    _isCorrect: 0
+  - emotionType: 4
+    textDescription: 
+    _isCorrect: 1
+  selectionTime: 7
   hint: Those words keeps staying in my mind. I want get rid of it

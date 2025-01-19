@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2393359156184360269}
@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3600938811610952140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5250995369140498047}
+  m_Layer: 0
+  m_Name: PointToScream
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5250995369140498047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3600938811610952140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.21, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3761793594686752840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4286274670879791794
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 4286274670879791794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalPosition: {x: 19.359999, y: 2.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -143,13 +174,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2660425280796835340, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.08
+      objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 140.37
       objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.73
       objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -161,15 +196,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -193,6 +228,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2393359156184360269}
+    - targetCorrespondingSourceObject: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5250995369140498047}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8352065386793702713, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
       insertIndex: -1
@@ -242,16 +280,12 @@ MonoBehaviour:
   _obstacleView: {fileID: 3464179499424857756}
   _obstacleData: {fileID: 11400000, guid: f7204b6d42f6ca2478a26832025342c3, type: 2}
   _isCorrectChoice: 0
+  customTimeScale: 0.5
   actionData:
-    pointToScream: {fileID: 8634823028421431950}
+    pointToScream: {fileID: 5250995369140498047}
     duration: 2
 --- !u!4 &3761793594686752840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7424786719948793034, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
-  m_PrefabInstance: {fileID: 5998433484261108866}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8634823028421431950 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2660425280796835340, guid: c35a3a26ea728b348978b81c9754c2a0, type: 3}
   m_PrefabInstance: {fileID: 5998433484261108866}
   m_PrefabAsset: {fileID: 0}

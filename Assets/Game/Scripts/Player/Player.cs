@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
-using static UnityEditor.Rendering.InspectorCurveEditor;
 
 
 public class Player : MonoBehaviour, ITimeReactive
@@ -152,6 +150,11 @@ public class Player : MonoBehaviour, ITimeReactive
         if (nextAction == ActionType.Idle || !isCorrect)
         {
             ChangeState(ActionType.Idle);
+            if (GameController.Instance.CurrentState == GameController.Instance.GameState)
+            {
+                var playState = GameController.Instance.GameState as PlayState;
+                playState?.OnPlayerDie();
+            }
             return;
         }
         ChangeState(nextAction, nextData);

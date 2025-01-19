@@ -26,7 +26,7 @@ public class GameplayController : MonoBehaviour
     private void Update()
     {
         player.CustomUpdate(timeController.curTimeScale);
-        Cheat();
+        //Cheat();
     }
 
     private void Cheat()

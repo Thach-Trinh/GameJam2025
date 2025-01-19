@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class PlayState : AbstractGameState
@@ -11,12 +10,14 @@ public class PlayState : AbstractGameState
    [SerializeField] private Canvas playCanvas;
    public override async void OnEnter()
    {
+      Player.Instance.anim.enabled = false;
         Player.Instance.anim.gameObject.SetActive(true);
         Debug.Log("PlayState OnEnter");
         CameraController.Instance.SetPos(Player.Instance.transform.position);
       gameController.Player.ChangeState(ActionType.Idle);
       gameController.Player.transform.position = gameController.PlayerSpawnPoint.position;
       gameController.CreateMap();
+      TimeController.Instance.SetTimeScale(1);
       // TODO: lang nghe player chet
       
       // TODO: lang nghe player win
@@ -26,9 +27,10 @@ public class PlayState : AbstractGameState
       playCanvas.gameObject.SetActive(true);
       AudioController.Instance.PlaySound(SoundName.ALARM);
       await UniTask.Delay(TimeSpan.FromSeconds(2f));
-      
+      TimeController.Instance.GetAllAffectedObjects();
       playCanvas.gameObject.SetActive(false);
-      
+      await UniTask.Delay(TimeSpan.FromSeconds(0.5));
+      Player.Instance.anim.enabled = true;
       gameController.Player.ChangeState(ActionType.Run);
       // TODO: Bat dau game, nhan vat di chuyen
    }

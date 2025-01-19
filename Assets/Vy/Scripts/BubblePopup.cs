@@ -171,16 +171,12 @@ public class BubblePopup : MonoBehaviour
         else
         {
             VyHelper.PrintLog(enableLog, logTag, "Incorrect");
-            //TODO: Lose
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
-            if (GameController.Instance.CurrentState == GameController.Instance.GameState)
-            {
-                var playState = GameController.Instance.GameState as PlayState;
-                playState?.OnPlayerDie();
-            }
         }
         Player.Instance.ReceiveAction(BubbleBridge.GetAction(emotionType), currentObstacleBase.GetData(), isCorrect, currentObstacleBase);
+        
+        TimeController.Instance.SetTimeScale(1);
     }
+
 
     [ContextMenu("Hide")]
     public void Hide()

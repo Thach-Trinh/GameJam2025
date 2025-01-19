@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Depressed_BadWords
   m_EditorClassIdentifier: 
   emotionVisuals:
+  - emotionType: 1
+    textDescription: 
+    _isCorrect: 0
   - emotionType: 0
     textDescription: 
     _isCorrect: 0
   - emotionType: 3
     textDescription: 
     _isCorrect: 1
-  - emotionType: 1
-    textDescription: 
-    _isCorrect: 0
-  selectionTime: 10
+  selectionTime: 7
   hint: Please ... Please stop yelling at me !!

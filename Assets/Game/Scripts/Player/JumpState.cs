@@ -73,6 +73,7 @@ public class JumpState : PlayerBaseState
 
     private void StartJump()
     {
+        AudioController.Instance.PlaySound(SoundName.JUMP);
         curPhase = JumpPhaseType.Up;
         //trans.position = startPoint + prepareOffset;
         player.anim.CrossFade(UP_HASH, normalizedTransitionDuration);

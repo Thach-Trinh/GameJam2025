@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Depressed_WreckingBall
   m_EditorClassIdentifier: 
   emotionVisuals:
-  - emotionType: 0
-    textDescription: 
-    _isCorrect: 0
   - emotionType: 3
     textDescription: 
     _isCorrect: 1
+  - emotionType: 0
+    textDescription: 
+    _isCorrect: 0
   - emotionType: 4
     textDescription: 
     _isCorrect: 0
   - emotionType: 1
     textDescription: 
     _isCorrect: 0
-  selectionTime: 10
+  selectionTime: 6
   hint: Too many pressure out there! Should I give up?

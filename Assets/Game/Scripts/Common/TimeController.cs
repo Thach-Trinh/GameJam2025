@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
     public static TimeController Instance;
     public List<ITimeReactive> affectedObjects = new List<ITimeReactive>();
-    private const float defaultTimeScale = 1f;
+    public const float defaultTimeScale = 1f;
     public float curTimeScale;
     public float slowTimeScale;
 
@@ -14,6 +15,16 @@ public class TimeController : MonoBehaviour
     {
         Debug.Log("Ahihi");
         Instance = this;
+    }
+    
+    
+    [ContextMenu("Get All Affected Objects")]
+    public void GetAllAffectedObjects()
+    {
+        affectedObjects.Clear();
+        ITimeReactive[] objects = FindObjectsOfType<MonoBehaviour>().OfType<ITimeReactive>().ToArray();
+        affectedObjects.AddRange(objects);
+        Debug.Log(affectedObjects.Count);
     }
 
     public void SetTimeScale(float timeScale)

@@ -10,6 +10,7 @@ public class OutroState : AbstractGameState
   public override void OnEnter()
   {
     AudioController.Instance.StopSound(SoundName.GAMEPLAY);
+    AudioController.Instance.PlaySound(SoundName.ALARM);
     AudioController.Instance.PlaySound(SoundName.OUTRO);
     introCanvas.gameObject.SetActive(true);
   }
