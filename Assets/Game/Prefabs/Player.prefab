@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  speed: 2
-  defaultAnimSpeed: 0.2
+  sadSpeed: 2
+  happySpeed: 2
+  defaultSadAnimSpeed: 0.2
+  defaultHappyAnimSpeed: 0.2
+  happyThreshold: 3
   normalizedTransitionDuration: 0.1
 --- !u!1 &2486370660719522388
 GameObject:
@@ -268,8 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  prepareSpeed: 1
-  landSpeed: 1
+  prepareSpeed: 3
+  landSpeed: 3
   normalizedTransitionDuration: 0.1
   prepareOffset: {x: -0.47, y: 0.79}
   startOffset: {x: -0.47, y: 0.79}
@@ -339,6 +342,7 @@ MonoBehaviour:
   - {fileID: 971493264258086598}
   - {fileID: 5387600812796984288}
   curState: {fileID: 0}
+  happyPoint: 0
 --- !u!70 &7789817219414710167
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
