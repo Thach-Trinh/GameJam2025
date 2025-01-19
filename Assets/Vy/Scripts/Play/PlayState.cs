@@ -17,6 +17,7 @@ public class PlayState : AbstractGameState
       gameController.Player.ChangeState(ActionType.Idle);
       gameController.Player.transform.position = gameController.PlayerSpawnPoint.position;
       gameController.CreateMap();
+      TimeController.Instance.SetTimeScale(1);
       // TODO: lang nghe player chet
       
       // TODO: lang nghe player win
