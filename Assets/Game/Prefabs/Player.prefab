@@ -267,6 +267,7 @@ MonoBehaviour:
   prepareSpeed: 1
   landSpeed: 1
   normalizedTransitionDuration: 0.1
+  prepareOffset: {x: -0.47, y: 0.79}
   startOffset: {x: -0.47, y: 0.79}
   middleOffset: {x: -0.47, y: -0.99}
   endOffset: {x: -0.52, y: 0.71}
@@ -489,7 +490,8 @@ MonoBehaviour:
   epsilon: 0.001
   moveSpeed: 1
   prepareAnimSpeed: 4
-  defaultMoveAnimSpeed: 0.1
+  defaultMoveAnimSpeed: 0.07
+  offset: {x: 0, y: -1.27}
   normalizedTransitionDuration: 0.1
 --- !u!1 &8024031946049068508
 GameObject:
