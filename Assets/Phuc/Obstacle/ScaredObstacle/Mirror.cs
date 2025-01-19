@@ -27,6 +27,11 @@ public class Mirror : ScaredObstacleView
                 {
                     SpawnSmokeParticle(_spriteRenderer.transform.position);
                 }
+
+                if (spriteIndex == 1)
+                {
+                    AudioController.Instance.PlaySound(SoundName.SCREAM);
+                }
                 _spriteRenderer.sprite = _mirrorSprites[spriteIndex];
                 ticker = 0;
             }

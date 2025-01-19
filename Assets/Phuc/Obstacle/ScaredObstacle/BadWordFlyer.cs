@@ -13,6 +13,7 @@ public class BadWordFlyer : ScaredObstacleView
     [SerializeField] private float destroyDuration;
     protected override IEnumerator PlayScaredAnimationChoiceCorrectIE()
     {
+        AudioController.Instance.PlaySound(SoundName.SCREAM);
         for (int i = 0; i < _flyItems.Count; i++)
         {
             StartCoroutine(FlyItem_Stop_Up(_flyItems[i]));
