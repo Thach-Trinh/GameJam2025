@@ -13,7 +13,9 @@ public class CameraController : MonoBehaviour
     [Space(10), Header("Following Setting")]
     public float smoothTime = 0.3f;
     public Vector2 offset;
+    public bool fixPosY = true;
     private Vector2 velocity;
+
 
     [Space(10), Header("Zooming Setting")]
     public float zoomDuration;
@@ -45,13 +47,21 @@ public class CameraController : MonoBehaviour
 
     public void Follow(Vector3 target)
     {
-        Vector2 requiredPos = new Vector2(target.x + offset.x, transform.position.y);
+        //Vector2 requiredPos = new Vector2(target.x + offset.x, transform.position.y);
+        Vector2 requiredPos = GetRequiredPos(target);
         transform.position = Vector2.SmoothDamp(transform.position, requiredPos, ref velocity, smoothTime);
+    }
+
+    private Vector2 GetRequiredPos(Vector3 target)
+    {
+        if (fixPosY)
+            return new Vector2(target.x + offset.x, transform.position.y);
+        return (Vector2)target + offset;
     }
 
     public void SetPos(Vector3 target)
     {
-        Vector2 requiredPos = new Vector2(target.x + offset.x, transform.position.y);
+        Vector2 requiredPos = GetRequiredPos(target);
         transform.position = requiredPos;
     }
 

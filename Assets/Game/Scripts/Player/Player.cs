@@ -75,13 +75,13 @@ public class Player : MonoBehaviour, ITimeReactive
     {
         this.stateAnimSpeed = stateAnimSpeed;
         anim.speed = stateAnimSpeed * TimeController.Instance.curTimeScale;
-        Debug.Log(anim.speed);
+        //Debug.Log(anim.speed);
     }
 
     public void OnTimeScaleChanged(float timeScale)
     {
         anim.speed = stateAnimSpeed * timeScale;
-        Debug.Log(anim.speed);
+        //Debug.Log(anim.speed);
     }
 
     public void OnAnimEventTrigger(PlayerAnimationEventType type)

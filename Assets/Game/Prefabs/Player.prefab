@@ -94,10 +94,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   epsilon: 0.001
-  moveSpeed: 2
-  prepareAnimSpeed: 1
+  moveSpeed: 5
+  prepareAnimSpeed: 5
+  prepareAnimDuration: 4.5
+  moveAnimSpeed: 5
   defaultMoveAnimSpeed: 0.1
   normalizedTransitionDuration: 0.1
+  centerOffset: 40
+  prepareOffset: {x: -0.57, y: 0.87}
 --- !u!1 &2668288931198958521
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +329,7 @@ MonoBehaviour:
   animEventHandler: {fileID: 8709775450432329420}
   anim: {fileID: 3269433933498930522}
   nextAction: 0
+  nextObstacle: {fileID: 0}
   states:
   - {fileID: 2850271271990926543}
   - {fileID: 768617386666611025}
