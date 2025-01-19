@@ -22,6 +22,7 @@ public class Player : MonoBehaviour, ITimeReactive
     public Action onStopScreamEventTrigger;
     public ActionType nextAction;
     private ActionData nextData;
+    public ObstacleBase nextObstacle;
     public PlayerBaseState[] states;
     public PlayerBaseState curState;
     private bool isCorrect;
@@ -46,11 +47,12 @@ public class Player : MonoBehaviour, ITimeReactive
         TimeController.Instance.affectedObjects.Remove(this);
     }
 
-    public void ReceiveAction(ActionType type, ActionData data, bool isCorrect)
+    public void ReceiveAction(ActionType type, ActionData data, bool isCorrect, ObstacleBase nextObstacle)
     {
         nextAction = type;
         this.nextData = data;
         this.isCorrect = isCorrect;
+        this.nextObstacle = nextObstacle;
     }
 
     public void ChangeState(ActionType type, ActionData data = null)
@@ -109,6 +111,7 @@ public class Player : MonoBehaviour, ITimeReactive
             case PlayerAnimationEventType.DealDamage:
                 {
                     CameraController.Instance.Shake();
+                    nextObstacle?.OnPlayerSuccessInteract();
                     break;
                 }
             case PlayerAnimationEventType.FinishAttack:
@@ -132,6 +135,7 @@ public class Player : MonoBehaviour, ITimeReactive
             case PlayerAnimationEventType.StartScream:
                 {
                     CameraController.Instance.Shake();
+                    nextObstacle?.OnPlayerSuccessInteract();
                     break;
                 }
             case PlayerAnimationEventType.StopScream:
