@@ -32,5 +32,9 @@ public enum SoundName
     FAILED,
     JUMP,
     SCREAM,
-    LOVE,
+    FLY,
+    DUCK,
+    WHISPERS,
+    BOSS_YELLING,
+    ITEM_FLYER,
 }

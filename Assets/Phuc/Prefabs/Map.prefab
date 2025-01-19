@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: customTimeScale
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 7680548270026816667, guid: 6fb3079b9dd94f447aa6a0794998742a, type: 3}
+      propertyPath: _angryObstacleType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -681,7 +685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 125738125011152602, guid: 9853b63f074e7f943a702d4bf80473e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4500046
+      value: 2.540001
       objectReference: {fileID: 0}
     - target: {fileID: 3159210127397850915, guid: 9853b63f074e7f943a702d4bf80473e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -737,7 +741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206897924473221914, guid: 9853b63f074e7f943a702d4bf80473e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.7400055
+      value: 6.83
       objectReference: {fileID: 0}
     - target: {fileID: 7509288672975738341, guid: 9853b63f074e7f943a702d4bf80473e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -745,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8878060623881036059, guid: 9853b63f074e7f943a702d4bf80473e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.640005
+      value: 10.730001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -935,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3388793990896146907, guid: 27a1a859141500c4daa749d721e4ad78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.29
+      value: 7.74
       objectReference: {fileID: 0}
     - target: {fileID: 4098518670808187786, guid: 27a1a859141500c4daa749d721e4ad78, type: 3}
       propertyPath: customTimeScale
@@ -1098,6 +1102,10 @@ PrefabInstance:
     - target: {fileID: 7680548270026816667, guid: 6fb3079b9dd94f447aa6a0794998742a, type: 3}
       propertyPath: customTimeScale
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680548270026816667, guid: 6fb3079b9dd94f447aa6a0794998742a, type: 3}
+      propertyPath: _angryObstacleType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1267,7 +1275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3143739177427840127, guid: a3528eee9770fa247a5c146411189073, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 107.45
+      value: 107.37
       objectReference: {fileID: 0}
     - target: {fileID: 3143739177427840127, guid: a3528eee9770fa247a5c146411189073, type: 3}
       propertyPath: m_LocalPosition.y

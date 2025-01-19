@@ -36,6 +36,7 @@ public class DuckState : PlayerBaseState
 
     private void StartMove()
     {
+        AudioController.Instance.PlaySound(SoundName.DUCK);
         isMoving = true;
         player.anim.CrossFade(MOVE_HASH, normalizedTransitionDuration);
         player.SetStateAnimSpeed(moveSpeed / defaultMoveAnimSpeed);
@@ -53,5 +54,6 @@ public class DuckState : PlayerBaseState
     public override void ExitState()
     {
         trans.position = endPoint;
+        AudioController.Instance.StopSound(SoundName.DUCK);
     }
 }

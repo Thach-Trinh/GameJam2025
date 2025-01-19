@@ -14,20 +14,24 @@ public class BadWordFlyer : ScaredObstacleView
     protected override IEnumerator PlayScaredAnimationChoiceCorrectIE()
     {
         AudioController.Instance.PlaySound(SoundName.SCREAM);
+        AudioController.Instance.PlaySound(SoundName.ITEM_FLYER);
         for (int i = 0; i < _flyItems.Count; i++)
         {
             StartCoroutine(FlyItem_Stop_Up(_flyItems[i]));
             yield return new WaitForSeconds(delayEachItem);
         }
+        AudioController.Instance.StopSound(SoundName.ITEM_FLYER);
     }
 
     protected override IEnumerator PlayScaredAnimationChoiceInCorrectIE()
     {
+        AudioController.Instance.PlaySound(SoundName.ITEM_FLYER);
         for (int i = 0; i < _flyItems.Count; i++)
         {
             StartCoroutine(FlyItemBackward(_flyItems[i]));
             yield return new WaitForSeconds(delayEachItem);
         }
+        AudioController.Instance.StopSound(SoundName.ITEM_FLYER);
     }
     
     IEnumerator FlyItem_Stop_Up(Transform item)

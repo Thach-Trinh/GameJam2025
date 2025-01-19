@@ -88,7 +88,7 @@ public abstract class ObstacleBase : MonoBehaviour
         Debug.Log("Player success interact with obstacle");
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         _startTriggerBox._onPlayerTriggerObstacleBox -= OnPlayerEnterStartTriggerBox;
         _endTriggerBox._onPlayerTriggerObstacleBox -= OnPlayerEnterEndTriggerBox;

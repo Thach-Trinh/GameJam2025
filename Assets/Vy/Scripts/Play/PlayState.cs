@@ -10,6 +10,7 @@ public class PlayState : AbstractGameState
    [SerializeField] private Canvas playCanvas;
    public override async void OnEnter()
    {
+      Player.Instance.anim.enabled = false;
         Player.Instance.anim.gameObject.SetActive(true);
         Debug.Log("PlayState OnEnter");
         CameraController.Instance.SetPos(Player.Instance.transform.position);
@@ -27,7 +28,8 @@ public class PlayState : AbstractGameState
       await UniTask.Delay(TimeSpan.FromSeconds(2f));
       TimeController.Instance.GetAllAffectedObjects();
       playCanvas.gameObject.SetActive(false);
-      
+      await UniTask.Delay(TimeSpan.FromSeconds(0.5));
+      Player.Instance.anim.enabled = true;
       gameController.Player.ChangeState(ActionType.Run);
       // TODO: Bat dau game, nhan vat di chuyen
    }
