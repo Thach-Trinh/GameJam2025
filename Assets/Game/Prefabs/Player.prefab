@@ -267,6 +267,9 @@ MonoBehaviour:
   prepareSpeed: 1
   landSpeed: 1
   normalizedTransitionDuration: 0.1
+  startOffset: {x: -0.47, y: 0.79}
+  middleOffset: {x: -0.47, y: -0.99}
+  endOffset: {x: -0.52, y: 0.71}
   curPhase: 0
   upAnimDuration: 1.333
   downAnimDuration: 0.583
