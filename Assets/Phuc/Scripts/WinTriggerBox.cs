@@ -7,6 +7,11 @@ public class WinTriggerBox : MonoBehaviour
 {
     [SerializeField] private ObstacleTriggerBox _obstacleTriggerBox;
 
+    private void Start()
+    {
+        InitWinTriggerBox();
+    }
+
     public void ResetObstacle()
     {
         InitWinTriggerBox();

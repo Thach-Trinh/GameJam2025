@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Scared_Mirror
   m_EditorClassIdentifier: 
   emotionVisuals:
+  - emotionType: 3
+    textDescription: 
+    _isCorrect: 0
   - emotionType: 2
     textDescription: 
     _isCorrect: 0
   - emotionType: 4
     textDescription: 
     _isCorrect: 1
-  - emotionType: 3
-    textDescription: 
-    _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: Scariest person I've ever faced is meself ...

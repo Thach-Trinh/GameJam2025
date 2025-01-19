@@ -15,6 +15,7 @@ public class HappyObstacleView : ObstacleView
     
     void TriggerJump()
     {
+        if (_animator == null) return;
         _animator.SetTrigger(JumpHash);
     }
 }

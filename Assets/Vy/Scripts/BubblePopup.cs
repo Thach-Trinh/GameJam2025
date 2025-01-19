@@ -97,11 +97,16 @@ public class BubblePopup : MonoBehaviour
             yield return null;
             currentTime += Time.deltaTime;
         }
-
+        
         slider.value = 0;
         timerCoroutine = null;
         VyHelper.PrintLog(enableLog, logTag, "Timer done");
         Hide();
+        if (GameController.Instance.CurrentState == GameController.Instance.GameState)
+        {
+            var playState = GameController.Instance.GameState as PlayState;
+            playState?.OnPlayerDie();
+        }
     }
 
     private void StopTimer()

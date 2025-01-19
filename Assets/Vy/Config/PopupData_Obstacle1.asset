@@ -22,5 +22,5 @@ MonoBehaviour:
   - emotionType: 2
     textDescription: 
     _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: "Vui l\xEAn n\xE0o b\u1EA1n nh\xE9"

@@ -25,5 +25,5 @@ MonoBehaviour:
   - emotionType: 4
     textDescription: 
     _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: Hey!! Those spike could've killed me

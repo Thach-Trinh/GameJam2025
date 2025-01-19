@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Angry_Boss
   m_EditorClassIdentifier: 
   emotionVisuals:
-  - emotionType: 2
+  - emotionType: 4
     textDescription: 
     _isCorrect: 0
   - emotionType: 1
     textDescription: 
     _isCorrect: 1
+  - emotionType: 2
+    textDescription: 
+    _isCorrect: 0
   - emotionType: 3
     textDescription: 
     _isCorrect: 0
-  - emotionType: 4
-    textDescription: 
-    _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: Him again!! Most punchable face I've ever seen

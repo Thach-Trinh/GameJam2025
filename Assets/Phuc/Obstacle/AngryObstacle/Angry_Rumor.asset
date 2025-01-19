@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Angry_Rumor
   m_EditorClassIdentifier: 
   emotionVisuals:
+  - emotionType: 2
+    textDescription: 
+    _isCorrect: 0
   - emotionType: 1
     textDescription: 
     _isCorrect: 1
   - emotionType: 0
     textDescription: 
     _isCorrect: 0
-  - emotionType: 2
-    textDescription: 
-    _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: They keep whispering bad things about me .... I can't take it anymoreeeee
     !!!!

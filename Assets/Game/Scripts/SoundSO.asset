@@ -12,4 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ba700d4f73474b9544f2440704c95, type: 3}
   m_Name: SoundSO
   m_EditorClassIdentifier: 
-  arrSound: []
+  arrSound:
+  - name: 0
+    clip: {fileID: 8300000, guid: d8ab0176bb1b2754a9da199b46ab75f4, type: 3}
+    volume: 0.275
+    source: {fileID: 0}
+    loop: 1
+  - name: 1
+    clip: {fileID: 8300000, guid: 0e9fafcf33284a5499bf438955982601, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: 2
+    clip: {fileID: 8300000, guid: b688e1c601b44684bbc13f0c610bac02, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 3
+    clip: {fileID: 8300000, guid: d1a820145df8b2c47bdc03572a598941, type: 3}
+    volume: 0.588
+    source: {fileID: 0}
+    loop: 0
+  - name: 4
+    clip: {fileID: 8300000, guid: 1a3d367bf4c09ca4496273fd07440cd3, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 5
+    clip: {fileID: 8300000, guid: 7bb3f5a1a2266dd40ba3f8b5e5275062, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 6
+    clip: {fileID: 8300000, guid: 531d86725da790841bc24036378d82b1, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 7
+    clip: {fileID: 8300000, guid: 2f580fadfe814c14b8916a5624709b6f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 8
+    clip: {fileID: 8300000, guid: 6d0aac438677df94d80b2e2ecc41dca4, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0

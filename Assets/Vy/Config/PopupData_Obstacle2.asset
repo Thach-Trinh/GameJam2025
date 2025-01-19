@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PopupData_Obstacle2
   m_EditorClassIdentifier: 
   emotionVisuals: []
-  selectionTime: 3
+  selectionTime: 10
   hint: 

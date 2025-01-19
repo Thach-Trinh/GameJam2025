@@ -60,6 +60,7 @@ public class PlayState : AbstractGameState
    public void OnPlayerDie()
    {
       Debug.Log("Player die");
+      Player.Instance.anim.gameObject.SetActive(false);
       gameController.SetState(gameController.RestartState);
    }
 

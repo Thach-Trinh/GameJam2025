@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Happy_TrashBin
   m_EditorClassIdentifier: 
   emotionVisuals:
+  - emotionType: 3
+    textDescription: 
+    _isCorrect: 0
   - emotionType: 2
     textDescription: 
     _isCorrect: 1
   - emotionType: 1
     textDescription: 
     _isCorrect: 0
-  - emotionType: 3
-    textDescription: 
-    _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: My life looks alike that trashbin, such a waste :(

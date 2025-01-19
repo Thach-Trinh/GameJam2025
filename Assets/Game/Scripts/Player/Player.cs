@@ -161,6 +161,6 @@ public class Player : MonoBehaviour, ITimeReactive
         nextAction = ActionType.Idle;
         nextData = null;
     }
-
+    
 
 }

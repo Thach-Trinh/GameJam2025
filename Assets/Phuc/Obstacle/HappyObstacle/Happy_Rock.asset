@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Happy_Rock
   m_EditorClassIdentifier: 
   emotionVisuals:
-  - emotionType: 1
+  - emotionType: 4
     textDescription: 
     _isCorrect: 0
-  - emotionType: 4
+  - emotionType: 1
     textDescription: 
     _isCorrect: 0
   - emotionType: 2
     textDescription: 
     _isCorrect: 1
-  selectionTime: 3
+  selectionTime: 10
   hint: Oh no... I will hit that stone overthere

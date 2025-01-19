@@ -22,5 +22,5 @@ MonoBehaviour:
   - emotionType: 2
     textDescription: 
     _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: Those words keeps staying in my mind. I want get rid of it

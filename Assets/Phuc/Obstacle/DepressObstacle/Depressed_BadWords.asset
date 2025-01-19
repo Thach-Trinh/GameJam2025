@@ -22,5 +22,5 @@ MonoBehaviour:
   - emotionType: 1
     textDescription: 
     _isCorrect: 0
-  selectionTime: 3
+  selectionTime: 10
   hint: Please ... Please stop yelling at me !!
